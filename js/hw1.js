@@ -1,71 +1,5 @@
 "use strict"
-// console.log("I learning JS");
-// let num = 7;
 
-// num = 25;
-
-// console.log(num);
-
-// let colorEyes = '#blue';
-// let user;
-// let userName = 'Вася';
-// user = userName;
-// console.log(user);
-// console.log(userName);
-// console.log(colorEyes);
-// console.log(num);
-
-// let myName = 'Alex';
-// let myAge = '36';
-// let myWork = 'Marksheider';
-// console.log(myWork);
-// myAge = 55;
-// console.log(myAge);
-
-// const myDog = "Daineris";
-// console.log(myDog);
-
-
-
-// var wakeUpTime = '5.00 in the morning';
-// console.log(typeof wakeUpTime);
-
-// let trueOrFalse = 55 > 33;
-// console.log(trueOrFalse);
-
-
-// let userInfo = {
-//    name: 'Alex',
-//    age: 36
-// }
-// console.log(userInfo);
-
-// let userTrue = true;
-// console.log(userTrue);
-// console.log(typeof userTrue);
-
-// userTrue = String(userTrue);
-// console.log(userTrue);
-// console.log(typeof userTrue);
-
-// // let z = 6**2;
-// // console.log(`[Абсолютная высота будет:${z}]`);
-
-// const userMame = 'Samuel';
-// console.log('My name is:', userMame);
-
-
-// const isComing = confirm("Please confirm hotel reservation");
-// console.log(isComing);
-
-// // Спрашиваем имя отеля в котором хотел бы остановится клиент
-// // и сохраняем в переменную результат вызова prompt.
-// const hotelName = prompt("Please enter desired hotel name");
-// console.log(hotelName);
-
-// const value = prompt("Please enter a number!");
-// console.log(typeof value); // "string"
-// console.log(value); // "5"
  const x = 5; const y = 10; const z = 5;
 
 console.log("x > y:", x > y); // false
@@ -285,8 +219,6 @@ const lastElement = courseTopic[courseTopicLength - 1];
 console.log(courseTopicLength);
 console.log(firstElement);
 console.log(lastElement);
-
-
 
 
 // #32
