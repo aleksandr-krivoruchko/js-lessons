@@ -306,6 +306,33 @@ function formatMessage(message, maxLength) {
 }
 console.log(formatMessage("Vestibulum facilisis purus nec", 20));
 
+// №34
+function normalizeInput(input) {
+  const normalizedInput = input.toLowerCase(); 
+  return normalizedInput;
+}
+console.log(normalizeInput("This ISN'T SpaM"));
+
+
+// #35
+function checkForName(fullName, name) {
+ const result = fullName.includes(name); 
+  return result;
+}
+console.log(checkForName('Samuel Krivouzis', 'Samyel'));
+
+// #36
+function checkForSpam(message) {
+  let result;
+normalizeMessage = message.toLowerCase();
+  result = normalizeMessage.includes('spam' || 'sale'); 
+  return result;
+}
+console.log(checkForSpam('owvnwejvn spam'));
+
+
+
+
 
 
 
