@@ -324,11 +324,10 @@ console.log(checkForName('Samuel Krivouzis', 'Samyel'));
 // #36
 function checkForSpam(message) {
   let result;
-normalizeMessage = message.toLowerCase();
-  result = normalizeMessage.includes('spam' || 'sale'); 
+  result = message.toLowerCase().includes('sale') || message.toLowerCase().includes('spam'); 
   return result;
 }
-console.log(checkForSpam('owvnwejvn spam'));
+console.log(checkForSpam("[SPAM] How to earn fast money?"));
 
 
 
