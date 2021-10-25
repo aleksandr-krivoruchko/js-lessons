@@ -39,22 +39,22 @@
 // console.log(Math.round(1.2)); // 1
 // console.log(Math.round(1.5)); // 2
 
-// // Math.max(num1, num2, ...) - возвращает наибольшее число из набора
+// Math.max(num1, num2, ...) - возвращает наибольшее число из набора
 // console.log(Math.max(20, 10, 50, 40)); // 50
 
-// // Math.min(num1, num2, ...) - возвращает наименьшее число из набора
+ // Math.min(num1, num2, ...) - возвращает наименьшее число из набора
 // console.log(Math.min(20, 10, 50, 40)); // 10
 
-// // Math.pow(base, exponent) - возведение в степень
+ // Math.pow(base, exponent) - возведение в степень
 // console.log(Math.pow(2, 4)); // 16
 
-// // Math.random() - возвращает псевдослучайное число в диапазоне [0, 1)
+ // Math.random() - возвращает псевдослучайное число в диапазоне [0, 1)
 // console.log(Math.random()); // случайное число между 0 и 1
 // console.log(Math.random() * (10 - 1) + 1); // псевдослучайное число от 1 до 10
 
 
 
-// // #12
+// #12
 // function makeOrderMessage(orderedQuantity, pricePerDroid, deliveryFee) {
 //    let totalPrice = orderedQuantity * pricePerDroid + deliveryFee;
 //    let message = `You ordered droids worth ${totalPrice} credits. Delivery (${deliveryFee} credits) is included in total price.`;
@@ -62,7 +62,7 @@
 // }
 // console.log(makeOrderMessage(5, 100, 70));
  
-// // #13
+// #13
 // function isAdult(age) {
 //   const passed = age >= 18;
 //   return passed;
@@ -70,7 +70,7 @@
 // console.log(isAdult(19));
 
 
-// // #14
+// #14
 // function isValidPassword(password) {
 //   const SAVED_PASSWORD = 'jqueryismyjam';
 //   const isMatch = SAVED_PASSWORD === password;
@@ -79,7 +79,7 @@
 // console.log(isValidPassword('password'));
 
 
-// // #18
+// #18
 // function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
 //   let message;
 // let totalPrice = pricePerDroid * orderedQuantity;
@@ -92,7 +92,7 @@
 
 
 
-// // #20
+ // #20
 // function checkStorage(available, ordered) {
 //   let message;
   
@@ -110,7 +110,7 @@
 // console.log(checkStorage(7, 5));
 
 
-// // #24
+// #24
 // function getDiscount(totalSpent) {
 //   const BASE_DISCOUNT = 0;
 //   const BRONZE_DISCOUNT = 0.02;
@@ -129,7 +129,7 @@
 // console.log(getDiscount(6000));
 
 
-// // №25
+// №25
 // function checkStorage(available, ordered) {
 //   let message = ordered > available ? "Not enough goods in stock!" : "The order is accepted, our manager will contact you";
   
@@ -138,7 +138,7 @@
 // console.log(checkStorage(75, 50));
 
 
-// // #27
+ // #27
 // function getSubscriptionPrice(type) {
 //   let price;
 //  switch (type) { 
@@ -158,7 +158,7 @@
 // }
 // console.log(getSubscriptionPrice("organization"));
 
-// // #28
+ // #28
 // function checkPassword(password) {
 //   const ADMIN_PASSWORD = "Repeta";
 //   let message;
@@ -177,7 +177,7 @@
 
 
 
-// // #29
+ // #29
 // function getShippingCost(country) {
 //   let message;
   
@@ -204,14 +204,14 @@
 // }
 // console.log(getShippingCost('Ukraine'));
 
-// // #30
+ // #30
 // function getNameLength(name) {
 //   const message = `Name ${name} is ${name.length} characters long`; 
 //   return message;
 // }
 // console.log(getNameLength('Aleksandr Kryvoruchko'));
 
-// // #31
+ // #31
 // const courseTopic = "JavaScript essentials";
 // const courseTopicLength = courseTopic.length;
 // const firstElement = courseTopic[0];
@@ -221,14 +221,14 @@
 // console.log(lastElement);
 
 
-// // #32
+ // #32
 // function getSubstring(string, length) {
 //   const substring = string.slice(0, length); 
 //   return substring;
 // }
 // console.log(getSubstring("mlkkwvlm lkmvldkvvlk fhefb", 7));
 
-// // #33
+ // #33
 // function formatMessage(message, maxLength) {
 //   let result;
  
@@ -238,7 +238,7 @@
 // }
 // console.log(formatMessage("Vestibulum facilisis purus nec", 20));
 
-// // №34
+ // №34
 // function normalizeInput(input) {
 //   const normalizedInput = input.toLowerCase(); 
 //   return normalizedInput;
@@ -246,14 +246,14 @@
 // console.log(normalizeInput("This ISN'T SpaM"));
 
 
-// // #35
+ // #35
 // function checkForName(fullName, name) {
 //  const result = fullName.includes(name); 
 //   return result;
 // }
 // console.log(checkForName('Samuel Krivouzis', 'Samyel'));
 
-// // #36
+ // #36
 // function checkForSpam(message) {
 //   let result;
 //   result = message.toLowerCase().includes('sale') || message.toLowerCase().includes('spam'); 
@@ -262,8 +262,27 @@
 // console.log(checkForSpam("[SPAM] How to earn fast money?"));
 
 
+let num = 8;
+while (num){
+	console.log(num);
+	num--
+}
 
+const totalMinutes = 1441;
 
+const hours = Math.floor(totalMinutes / 60);
+const minutes = totalMinutes % 60;
+console.log(hours);
+console.log(minutes);
+
+const doubleDigitHours = String(hours).padStart(2, 0);
+const doubleDigitMinutes = String(minutes).padStart(2, 0);
+console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
+
+const incomingValue = undefined ;
+const defaultValue = 10;
+const value = incomingValue || defaultValue;
+console.log(value);
 
 
 
