@@ -262,27 +262,27 @@
 // console.log(checkForSpam("[SPAM] How to earn fast money?"));
 
 
-let num = 8;
-while (num){
-	console.log(num);
-	num--
-}
+// let num = 8;
+// while (num){
+// 	console.log(num);
+// 	num--
+// }
 
-const totalMinutes = 1441;
+// const totalMinutes = 1441;
 
-const hours = Math.floor(totalMinutes / 60);
-const minutes = totalMinutes % 60;
-console.log(hours);
-console.log(minutes);
+// const hours = Math.floor(totalMinutes / 60);
+// const minutes = totalMinutes % 60;
+// console.log(hours);
+// console.log(minutes);
 
-const doubleDigitHours = String(hours).padStart(2, 0);
-const doubleDigitMinutes = String(minutes).padStart(2, 0);
-console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
+// const doubleDigitHours = String(hours).padStart(2, 0);
+// const doubleDigitMinutes = String(minutes).padStart(2, 0);
+// console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
 
-const incomingValue = undefined ;
-const defaultValue = 10;
-const value = incomingValue || defaultValue;
-console.log(value);
+// const incomingValue = undefined ;
+// const defaultValue = 10;
+// const value = incomingValue || defaultValue;
+// console.log(value);
 
 
 

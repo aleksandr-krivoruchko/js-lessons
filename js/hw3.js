@@ -64,20 +64,15 @@
 // Напиши скрипт который выводит в консоль имя и телефонный номер пользователя. В переменных names и phones хранятся строки имен и телефонных номеров, разделенные запятыми. Порядковый номер имен и телефонов в строках указывают на соответствие. Количество имен и телефонов гарантированно одинаковое.
 // const names = 'Jacob,William,Solomon,Artemis';
 // const phones = '89001234567,89001112233,890055566377,890055566300';
-// const arrNames = names.split(",");
-// console.log(arrNames);
-// const arrPhones = phones.split(",");
-// let phone = "";
-// let name = "";
-// let contact = "";                                            ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?  ? ?
-// for (let i = 0; i < arrNames.length; i++) {
-//   name = arrNames[i];
+// const namesArr = names.split(',');
+// const phonesArr = phones.split(',');
+
+// console.log(namesArr);
+// console.log(phonesArr);
+
+// for (let i = 0; i < namesArr.length; i += 1) {
+//   console.log(`${namesArr[i]} - ${phonesArr[i]}`);
 // }
-// for (let j = 0; j < arrPhones.length; j++) {
-// 		 phone = arrPhones[j];
-// 	}
-// 	contact = `${name}: +${phone}`;
-// 	console.log(contact);
 
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // Example 5 - Массивы и строки
@@ -106,16 +101,24 @@
 // Example 7 - Сортировка массива с циклом
 // Напиши скрипт сортировки массива строк в алфавитном порядке по первой букве элемента.
 
+// правильная сортировка
+// ['c++', 'haskel', 'javascript', 'php', 'python', 'ruby']
+// сортировка по первому символу
+// ['c++', 'haskel', 'javascript', 'python', 'php', 'ruby']
+
 // const langs = ['python', 'javascript', 'c++', 'haskel', 'php', 'ruby'];
-// let firstWord = langs[0];
-// let firstLetter = firstWord[0];
-// let array;
-//   for (let i = 0; i < langs.length; i++) {                 ????????????????????????????????????????????????
-// 	  const element = langs[i];
-// 	  if(element[0] < firstLetter){
-// 	array.push(element);}
-//   }        
-// console.log(array);
+// langs.sort();
+
+// for (let i = 0; i < langs.length; i += 1) {
+//   for (let j = i + 1; j < langs.length; j += 1) {
+//     if (langs[i][0] > langs[j][0]) {
+//       const tmp = langs[i];
+//       langs[i] = langs[j];
+//       langs[j] = tmp;
+//     }
+//   }
+// }
+// console.log(langs);
 
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // Example 8 - Поиск элемента
@@ -129,3 +132,70 @@
 // 	}
 // }
 // console.log(min); 
+
+
+// ::::::::::::::::::::::::::::::::::::: TASK from freeCodeCamp:::::::::::::::::::::::::::::::::::::::::::::::::::::
+// Счетчик изменений	Карты
+// +1	2, 3, 4, 5, 6
+// 0	7, 8, 9
+// -1	10, «J», «Q», «K», «A»
+// Напишете функцию подсчета карт. Он получит card параметр, который может быть числом или строкой, и будет увеличивать или уменьшать глобальную count переменную в соответствии со значением карты (см. Таблицу). Затем функция вернет строку с текущим счетчиком и строку, Betесли счетчик положительный, или Holdесли счетчик равен нулю или отрицателен. Текущий счет и решение игрока ( Betили Hold) должны быть разделены одним пробелом.
+
+// Примеры выходных данных: -3 Hold или 5 Bet
+
+// Совет
+// НЕ сбрасывайте countна 0, когда значение равно 7, 8 или 9.
+// НЕ возвращайте массив.
+// НЕ включайте в вывод кавычки (одинарные или двойные).
+
+// Последовательности карт 2, 3, 4, 5, 6 должны вернуться 5 Bet
+
+// Последовательность карточек 7, 8, 9 должна вернуть строку 0 Hold
+
+// Последовательность карточек 10, J, Q, K, A должна вернуть строку -5 Hold
+
+
+// var count = 0;
+// let message;
+// function cc(card) {
+//    switch (card) {
+//       case 2:
+//       case 3:
+//       case 4:
+//       case 5:
+//       case 6:
+//          count += 1;
+//          break;
+//       case 10:
+//       case 'J':
+//       case 'Q':
+//       case 'K':
+//       case 'A':
+//          count -= 1;
+//          break;
+//    }
+//    count += count > 0 ? ' BET' : ' HOLD';
+//   return count;
+// }
+// console.log(cc(2));
+//  :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
+// extra - сделать реверс каждого слова не меняя порядок слов
+// 1. разбить на массив слов
+// 2.1 разбить каждое слово на массив символов
+// 2.2 реверснуть
+// 2.3 собрать слово в одну строку
+// 3. собрать текст с массива слов
+
+// emocleW ot eht erutuf
+
+// const string = 'Welcome to the future';
+// let word = '';
+// let wordsArray = [];
+// let array = string.split(" ");
+// for (let i = 0; i < array.length; i++) {
+//     word = array[i].split("").reverse().join("");
+//    wordsArray.push(word);
+// }
+// let revString = wordsArray.join(" ");
+// console.log(revString);
+// :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
