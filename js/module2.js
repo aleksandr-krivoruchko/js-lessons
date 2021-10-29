@@ -186,10 +186,10 @@
 // Вес и высота будут специально переданы как строки. Нецелые числа могут быть заданы в виде 24.7 или 24,7, то есть в качестве разделителя дробной части может быть запятая.
 // Индекс массы тела необходимо округлить до одной цифры после запятой;
 
-const calcBMI = function (weight, height) {
-   return Math.ceil(Number.parseFloat(weight.replace(',', '.')) / Number.parseFloat(height.replace(',', '.')) ** 2);
- }
- console.log(calcBMI('88,3', '1.75')); // 28.8
+// const calcBMI = function (weight, height) {
+//    return Math.ceil(Number.parseFloat(weight.replace(',', '.')) / Number.parseFloat(height.replace(',', '.')) ** 2);
+//  }
+//  console.log(calcBMI('88,3', '1.75')); // 28.8
 
 // =======================================================================================================================
 // Example 2 - Меньшее из чисел
