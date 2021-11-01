@@ -28,23 +28,45 @@
 
 // У нас есть объект, в котором хранятся зарплаты нашей команды. Напишите код для суммирования всех зарплат и сохраните результат в переменной sum. Должно получиться 390. Если объект salaries пуст, то результат должен быть 0.
 
+// let sum = 0;
+// const salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130,
+// };
 
-const salaries = {
-  John: 100,
-  Ann: 160,
-  Pete: 130,
-};
+// for (const salary of Object.values(salaries)) {
+//   sum += salary;
+// }
+// console.log(sum);
+
 
 // Example 3 - Массив объектов============================================================================================
 
 // Напишите ф-цию calcTotalPrice(stones, stoneName), которая принимает массив обьектов и строку с названием камня. Ф-ция считает и возвращает общую стоимость камней с таким именем, ценой и количеством из обьекта
 
-const stones = [
-  { name: 'Изумруд', price: 1300, quantity: 4 },
-  { name: 'Бриллиант', price: 2700, quantity: 3 },
-  { name: 'Сапфир', price: 400, quantity: 7 },
-  { name: 'Щебень', price: 200, quantity: 2 },
-];
+// const stones = [
+//   { name: 'Изумруд', price: 1300, quantity: 4 },
+//   { name: 'Бриллиант', price: 2700, quantity: 3 },
+//   { name: 'Сапфир', price: 400, quantity: 7 },
+//   { name: 'Щебень', price: 200, quantity: 2 },
+// ];
+
+
+
+// function calcTotalPrice(stones, stoneName) {
+//   let totalPrice = 0;
+
+//   for (const stone of stones) {
+
+//     if (stone.name === stoneName) {
+//       totalPrice = stone.price * stone.quantity;
+//       return totalPrice;
+//     }
+//   }
+// }
+ 
+// console.log(`Общая стоимость камней составит: ${calcTotalPrice(stones, 'Изумруд')}$`);
 
 
 // Example 4 - Комплексные задачи=========================================================================================
