@@ -187,12 +187,8 @@
 // Индекс массы тела необходимо округлить до одной цифры после запятой;
 
 // const calcBMI = function (weight, height) {
-<<<<<<< Updated upstream
-//    return Math.ceil(Number.parseFloat(weight.replace(',', '.')) / Number.parseFloat(height.replace(',', '.')) ** 2);
-=======
 //     let bmi = Number.parseFloat(weight.replace(',', '.')) / Number.parseFloat(height.replace(',', '.')) ** 2;
 // 	 return bmi.toFixed(1);
->>>>>>> Stashed changes
 //  }
 //  console.log(calcBMI('88,3', '1.75')); // 28.8
 
