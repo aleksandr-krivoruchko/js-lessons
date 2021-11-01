@@ -34,7 +34,7 @@
 // Напиши скрипт для перебора массива fruits циклом for. Для каждого элемента массива выведи в консоль строку в формате номер_элемента: значение_элемента. Нумерация элементов должна начинаться с 1.
 // const fruits = ['🍎', '🍇', '🍑', '🍌', '🍋'];
 // for (let i = 0; i < fruits.length; i += 1) {
-// 	const element = fruits[i];
+	
 // 	console.log(`#${i + 1} : ${fruits[i]}`);
 // }
 
@@ -187,7 +187,12 @@
 // Индекс массы тела необходимо округлить до одной цифры после запятой;
 
 // const calcBMI = function (weight, height) {
+<<<<<<< Updated upstream
 //    return Math.ceil(Number.parseFloat(weight.replace(',', '.')) / Number.parseFloat(height.replace(',', '.')) ** 2);
+=======
+//     let bmi = Number.parseFloat(weight.replace(',', '.')) / Number.parseFloat(height.replace(',', '.')) ** 2;
+// 	 return bmi.toFixed(1);
+>>>>>>> Stashed changes
 //  }
 //  console.log(calcBMI('88,3', '1.75')); // 28.8
 
@@ -195,17 +200,27 @@
 // Example 2 - Меньшее из чисел
 // Напиши функцию min(a,b), которая возвращает меньшее из чисел a и b.
 
-// console.log(min(2, 5)); // 2
-// console.log(min(3, -1)); // -1
-// console.log(min(1, 1)); // 1
+// const getMinOfNumbers = function(a, b){
+    
+// 	 return a < b ? a : b;
+	
+// }
+//  console.log(getMinOfNumbers(2, 5)); // 2
+//  console.log(getMinOfNumbers(3, -1)); // -1
+//  console.log(getMinOfNumbers(1, 1)); // 1
 
 // ==================================================================================================================
 // Example 3 - Площадь прямоугольника
 // Напиши функцию getRectArea(dimensions) для вычисления площади прямоугольника со сторонами, значения которых будут переданы в параметр dimensions в виде строки. Значения гарантированно разделены пробелом.
 
-// function getRectArea(dimensions) {}
+// const getRectArea = function getRectArea(dimensions) {
+// let array = dimensions.split(" ");
 
-// console.log(getRectArea('8 11'));
+// return array[0] * array[1];
+// }
+// console.log(getRectArea('10 6'));
+// let x = getRectArea("4 5");
+// console.log(x);
 
 // ======================================================================================================================
 // Example 4 - Логирование элементов
@@ -213,16 +228,25 @@
 
 // Например для первого элемента массива ['Mango', 'Poly', 'Ajax'] с индексом 0 будет выведено 1 - Mango, а для индекса 2 выведет 3 - Ajax.
 
-// function logItems(items) {}
+// const logItems = function (array) {
 
+// 	for (let i = 0; i < array.length; i++) {
+// 		 console.log(`#${i + 1} : ${array[i]}`);
+// 	}
+// }
 // logItems(['Mango', 'Poly', 'Ajax']);
-// logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
-
 // ======================================================================================================================
 // Example 5 - Логирование контактов
 // Напиши функцию printContactsInfo(names, phones) которая выводит в консоль имя и телефонный номер пользователя. В параметры names и phones будут переданы строки имен и телефонных номеров, разделенные запятыми. Порядковый номер имен и телефонов в строках указывают на соответствие. Количество имен и телефонов гарантированно одинаковое.
 
-// function printContactsInfo(names, phones) {}
+// function printContactsInfo(names, phones) {
+// 	let arrayNames = names.split(",");
+// 	let arrayPhones = phones.split(",");
+
+// 	for (let i = 0; i < arrayNames.length; i++) {
+// 		console.log(`${arrayNames[i]} -- +${arrayPhones[i]}`);
+// 	}
+// }
 
 // printContactsInfo(
 //   'Jacob,William,Solomon,Artemis',
@@ -233,7 +257,17 @@
 // Example 6 - Поиск наибольшего элемента
 // Напиши функцию findLargestNumber(numbers)которая ищет самое большое число в массиве.
 
-// function findLargestNumber(numbers) {}
+// function findLargestNumber(numbers) {
+// let LargestNumber = [0];
+
+// for (const num of numbers) {
+	
+// 	if(num > LargestNumber){
+// 		LargestNumber = num;
+// 	}
+// }
+// return LargestNumber;
+// }
 
 // console.log(findLargestNumber([2, 17, 94, 1, 23, 37])); // 94
 // console.log(findLargestNumber([49, 4, 7, 83, 12])); // 83
@@ -242,9 +276,19 @@
 // Example 7 - Среднее значение
 // Напишите функцию calAverage() которая принимает произвольное кол-во аргументов и возвращает их среднее значение. Все аругменты будут только числами.
 
-// function calAverage() {}
+// function calAverage(...args) {
+// let ave = 0;
+// let sumArgs = 0;
 
-// console.log(calAverage(1, 2, 3, 4)); // 2.5
+// for (let i = 0; i < args.length; i++) {
+// sumArgs += args[i];
+// ave = sumArgs / args.length;
+// }
+ 
+//  return ave;
+// }
+
+//  console.log(calAverage(1, 2, 3, 4)); // 2.5
 // console.log(calAverage(14, 8, 2)); // 8
 // console.log(calAverage(27, 43, 2, 8, 36)); // 23.2
 
