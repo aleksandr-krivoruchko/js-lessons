@@ -184,3 +184,5 @@ console.log(account.getTransactionDetails(3));
 
 console.log(account.getTransactionTotal('deposit'));
 console.log(account.getTransactionTotal('withdraw'));
+
+
