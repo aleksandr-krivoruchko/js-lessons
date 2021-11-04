@@ -655,3 +655,84 @@
 // console.table(atTheOldToad.potions);
 // console.log(atTheOldToad.updatePotionName("Dragon breath", "Polymorth"));
 
+
+
+
+// ?=============Вариант 2==================================================
+
+// Выполни рефакторинг методов объекта atTheOldToad так, чтобы они работали не с массивом строк, а с массивом объектов.
+// getPotions() - метод для получения всех зелий. Возвращает значение свойства potions.
+// addPotion(newPotion) - добавляет зелье newPotion (уже объект) в массив в свойстве potions, но только если такого зелья еще нет в инвентаре. В противном случае возвращается строка.
+// removePotion(potionName) - удаляет объект зелья с именем potionName из массива в свойстве potions.
+// updatePotionName(oldName, newName) - обновляет свойство name объекта-зелья с названием oldName на newName в массиве potions.
+
+
+const atTheOldToad = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Dragon breath", price: 780 },
+    { name: "Stone skin", price: 520 },
+  ],
+
+  getPotions() {
+    return this.potions;
+  },
+
+
+  addPotion(newPotion) {
+
+	  for (const potion of this.potions) {
+
+      if (Object.values(potion).includes(newPotion.name)) {
+
+      return `Error! Potion ${newPotion.name} is already in your inventory!`;
+    }	
+	}
+      this.potions.push(newPotion);
+  },
+
+
+
+  removePotion(potionName) {
+    let potionIndex = "";
+
+	for (const potion of this.potions) {
+
+	if(Object.values(potion).includes(potionName)){
+
+	potionIndex = this.potions.indexOf(potion);
+	this.potions.splice(potionIndex, 1);
+	return;
+ 	} 
+	}
+    return `Potion ${potionName} is not in inventory!`;
+  },
+
+  
+
+//! Переименовать через индекс и сплайс не вышло(((
+
+  updatePotionName(oldName, newName) {
+    let potionIndex = "";
+
+	for (const potion of this.potions) {
+
+	if(Object.values(potion).includes(oldName)){
+		
+	potionIndex = this.potions.indexOf(potion);
+	this.potions.splice(potionIndex, 1, newName);
+	return;
+ 	} 
+	}
+    return `Potion ${oldName} is not in inventory!`;
+  },
+};
+
+console.log(atTheOldToad.addPotion({ name: "Dragon breath", price: 700 }));
+console.table(atTheOldToad.potions);
+
+console.log(atTheOldToad.removePotion("Dragon breath"));
+console.table(atTheOldToad.potions);
+
+console.log(atTheOldToad.updatePotionName('Speed potion'	, "Sam"));
+console.table(atTheOldToad.potions);
