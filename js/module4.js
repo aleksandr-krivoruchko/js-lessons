@@ -61,8 +61,8 @@ printContactsInfo({
 //   return `${companyName} has ${repairBots + defenceBots} bots in stock`;
 // }
 
-function getBotReport({ companyName, repairBots, defenceBots} ) {
-
+function getBotReport({ companyName, bots: { repair: repairBots, defence: defenceBots } }) {
+  
   return `${companyName} has ${repairBots + defenceBots} bots in stock`;
 }
 console.log(
@@ -106,7 +106,7 @@ function createContact(partialContact) {
    return {
       id:0,
       createdAt :{ },
-   list : "default",
+   list : partialContact.list || "default",
       ...partialContact,
    }
 }
@@ -115,26 +115,76 @@ console.log(
   createContact({
     name: 'Mango',
     email: 'mango@mail.com',
-    list: 'friends',
+    
   }),
 );
 
 // #6======================Операция rest=============================================================
 // Напиши функцию transformUsername(user) так, чтобы она возвращала новый обьект со свойством fullName, вместо firstName и lastName.
 
-function transformUsername({ firstName, lastName, ...args }) {
-   return {
+// function transformUsername({ firstName, lastName, ...args }) {
+//    return {
       
-      fullName: `${firstName} ${lastName}`,
-      ...args,
-   }
-}
-console.log(
-  transformUsername({
-    id: 2,
-    firstName: 'Adrian',
-    lastName: 'Cross',
-    email: 'a.cross@hotmail.com',
-    friendCount: 20,
-  }),
-);
+//       fullName: `${firstName} ${lastName}`,
+//       ...args,
+//    }
+// }
+// console.log(
+//   transformUsername({
+//     id: 2,
+//     firstName: 'Adrian',
+//     lastName: 'Cross',
+//     email: 'a.cross@hotmail.com',
+//     friendCount: 20,
+//   }),
+// );
+
+const array = [1, 2, 3, 4, 5];
+const arr = [...array];
+console.log(array === arr);
+console.log(array[0] === arr[0]);
+
+// const a = {
+//   x: 10,
+//   y: 25,
+//   z: 44,
+// }
+
+// const b = {
+//   x: 22,
+//   y: 35,
+//   z: 24,
+// }
+
+// const c = {
+//   x: 12,
+//   y: 5,
+//   r: 66,
+//   u: 33,
+// }
+
+// const d = {
+//   ...b,
+//   ...a,
+//   ...c,
+//   x:444,
+// }
+
+// console.log(d);
+
+// const numbers = [5, 10, 15, 20, 25];
+
+// // Классический for
+// for (let i = 0; i < numbers.length; i += 1) {
+//   console.log(`Индекс ${i}, значение ${numbers[i]}`);
+// }
+
+// // Перебирающий forEach
+// numbers.forEach(function (number, index) {
+//   console.log(`Индекс ${index}, значение ${number}`);
+// });
+
+// Декларативный подход
+const numbers = [1, 2, 3, 4, 5];
+const filteredNumbers = numbers.filter(value => value > 3);
+console.log(filteredNumbers); // [4, 5]
