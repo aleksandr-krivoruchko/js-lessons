@@ -445,7 +445,10 @@ const books = [
   },
   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 
   },
-  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+  { title: "The Dreams in the Witch House",
+    author: "Howard Lovecraft",
+    rating: 8.67,
+  },
 ];
 
 // const MIN_RATING = 8;
@@ -551,7 +554,7 @@ const getUsersWithFriend = (users, friendName) => users.filter(user => user.frie
 
 console.log(getUsersWithFriend(users, 'Briana Decker'));
 
-// !#25=============Задача. Список друзей=================================================================
+// !#25=============Задача. Список УНИКАЛЬНЫХ друзей=================================================================
 // Дополни функцию getFriends(users) так, чтобы она возвращала массив друзей всех пользователей (свойство friends). У нескольких пользователей могут быть одинаковые друзья, сделай так чтобы возвращаемый массив не содержал повторений.
 
 const getFriends = (users) => {
@@ -610,11 +613,208 @@ const firstArray = [26, 94, 36, 18];
 const secondArray = [17, 61, 23];
 const thirdArray = [17, 26, 94, 61, 36, 23, 18];
 
-const eachElementInFirstIsEven = firstArray;
-const eachElementInFirstIsOdd = firstArray;
+const eachElementInFirstIsEven = firstArray.every(num => num % 2 === 0);
+const eachElementInFirstIsOdd = firstArray.every(num => num % 2 !== 0);
 
-const eachElementInSecondIsEven = secondArray;
-const eachElementInSecondIsOdd = secondArray;
+const eachElementInSecondIsEven = secondArray.every(num => num % 2 === 0);
+const eachElementInSecondIsOdd = secondArray.every(num => num % 2 !== 0);
 
-const eachElementInThirdIsEven = thirdArray;
-const eachElementInThirdIsOdd = thirdArray;
+const eachElementInThirdIsEven = thirdArray.every(num => num % 2 === 0);
+const eachElementInThirdIsOdd = thirdArray.every(num => num % 2 !== 0);
+
+// !#31===================Задача. Все ли пользователи активны==============================================
+// Дополни функцию isEveryUserActive(users) так, чтобы она проверяла все ли пользователи сейчас активны (свойство isActive) и возвращала true или false.
+
+const isEveryUserActive = (users) => users.every(user => user.isActive);
+console.log(isEveryUserActive(users));
+
+// !#32==================Метод some()====================================================================
+// Используя метод some() дополни код так, чтобы:
+// В переменной anyElementInFirstIsEven был результат проверки наличия чётных элементов в массиве firstArray.
+// В переменной anyElementInFirstIsOdd был результат проверки наличия нечётных элементов в массиве firstArray.
+// В переменной anyElementInSecondIsEven был результат проверки наличия чётных элементов в массиве secondArray.
+// В переменной anyElementInSecondIsOdd был результат проверки наличия нечётных элементов в массиве secondArray.
+// В переменной anyElementInThirdIsEven был результат проверки наличия чётных элементов в массиве thirdArray.
+// В переменной anyElementInThirdIsOdd был результат проверки наличия нечётных элементов в массиве thirdArray.
+
+const anyElementInFirstIsEven = firstArray.some(num => num % 2 === 0);
+const anyElementInFirstIsOdd = firstArray.some(num => num % 2 !== 0);
+
+const anyElementInSecondIsEven = secondArray.some(num => num % 2 === 0);
+const anyElementInSecondIsOdd = secondArray.some(num => num % 2 !== 0);
+
+const anyElementInThirdIsEven = thirdArray.some(num => num % 2 === 0);
+const anyElementInThirdIsOdd = thirdArray.some(num => num % 2 !== 0);
+
+//!#33====================Задача. Есть ли активные пользователи==============================================
+// Дополни функцию isAnyUserActive(users) так, чтобы она проверяла наличие активных пользователей (свойство isActive) и возвращала true или false.
+
+const isAnyUserActive = users => users.some(user => user.isActive);
+
+// !#34===================Метод  R E D U C E ()=========================================================================
+// Игровому сервису необходим функционал подсчёта среднего времени проведённого в играх. Дополни код так, чтобы в переменной totalPlayTime получилось общее игровое время из массива playtimes.
+
+// const players = {
+//   mango: 1270,
+//   poly: 468,
+//   ajax: 710,
+//   kiwi: 244
+// };
+// const playtimes = Object.values(players); // [1270, 468, 710, 244]
+
+// const totalPlayTime = playtimes.reduce((prevNum, num) => {
+// 	return prevNum += num;
+// }, 0);
+// const totalPlayTime = playtimes.reduce((prevNum, num) =>  prevNum += num);
+// console.log(totalPlayTime);
+
+// const averagePlayTime = totalPlayTime / playtimes.length;
+// console.log(averagePlayTime);
+
+// !#35==================Метод reduce() и массив объектов================================================================
+// Нашему сервису необходимо рассчитать среднее время проведённое в одной игре для каждого игрока, и получить общую сумму этих времён. Рассчитать время для каждого из игроков, можно разделив его время (свойство playtime) на количество игр (свойство gamesPlayed).
+
+const players = [
+  { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+  { name: "Poly", playtime: 469, gamesPlayed: 2 },
+  { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+  { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+];
+
+const totalAveragePlaytimePerGame = players.reduce((prevTime, player) => {
+	return prevTime += player.playtime / player.gamesPlayed;
+}, 0);
+
+console.log(totalAveragePlaytimePerGame);
+
+// !#36=======================Задача. Общий баланс пользователей======================================================
+// Дополни функцию calculateTotalBalance(users) так, чтобы она считала и возвращала сумму всех средств (свойство balance) которые хранят пользователи из массива users.
+
+const calculateTotalBalance = users => {
+   return users.reduce((prevBalance, user) => prevBalance += user.balance, 0);
+};
+console.log(calculateTotalBalance(users));
+
+// !#37=====================Задача. Общее количество друзей==========================================================
+// Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее количество друзей (свойство friends) всех пользователей из массива users.
+
+const getTotalFriendCount = users => {
+   return users.reduce((prevFriendLength, user) => prevFriendLength += user.friends.length, 0);
+};
+console.log(getTotalFriendCount(users));
+
+// !#38===================Метод sort()============================================================================
+// Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная по возрастанию копия массива releaseDates, а в переменной alphabeticalAuthors копия массива имён авторов authors отсортированная в по алфавиту.
+
+const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+const authors = [
+  "Tanith Lee",
+  "Bernard Cornwell",
+  "Robert Sheckley",
+  "Fyodor Dostoevsky",
+  "Howard Lovecraft",
+];
+
+// const ascendingReleaseDates = [...releaseDates].sort();
+// const alphabeticalAuthors = [...authors].sort();
+
+// !#39==================Свой порядок сортировки чисел===========================================================
+// Онлайн бибилиотеке необходимо отображать книги сортированные по дате издания, по её возрастанию или убыванию. Дополни код так, чтобы в переменной ascendingReleaseDates получилась отсортированная по возрастанию копия массива releaseDates, а в переменной descendingReleaseDates копия отсортированная по убыванию.
+
+const ascendingReleaseDates = [...releaseDates].sort((a, b) => a - b);
+
+const descendingReleaseDates = [...releaseDates].sort((a, b) => b - a);
+
+// !#40==================Свой порядок сортировки строк==========================================================
+// Онлайн бибилиотеке необходимо отображать книги отсортированные по автору, в алфавитном и обратном алфавитном порядке. Дополни код так, чтобы в переменной authorsInAlphabetOrder получилась отсортированная по алфавиту копия массива authors, а в переменной authorsInReversedOrder копия отсортированная в обратном алфавитном порядке.
+
+const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+
+const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
+
+// !#41=================Сортировка объектов=====================================================================
+// Дополни код так, чтобы:
+// В переменной sortedByAuthorName получился массив книг отсортированный по имени автора в алфавитном порядке.
+// В переменной sortedByReversedAuthorName получился массив книг отсортированный по имени автора в обратном алфавитном порядке.
+// В переменной sortedByAscendingRating получился массив книг отсортированный по возрастанию рейтинга.
+// В переменной sortedByDescentingRating получился массив книг отсортированный по убыванию рейтинга.
+
+
+const sortedByAuthorName = [...books].sort((firstBook, secondBook) => firstBook.author.localeCompare(secondBook.author));
+
+const sortedByReversedAuthorName = [...books].sort((firstBook, secondBook) => secondBook.author.localeCompare(firstBook.author));
+
+const sortedByAscendingRating = [...books].sort((firstBook, secondBook) => firstBook.rating - secondBook.rating);
+
+const sortedByDescentingRating = [...books].sort((firstBook, secondBook) => secondBook.rating - firstBook.rating);
+
+// !#42===================Задача. Сортировка по балансу===========================================================================
+// Дополни функцию sortByAscendingBalance(users) так, чтобы она возвращала массив пользователей отсортированный по возрастанию их баланса (свойство balance)
+
+const sortByAscendingBalance = users => {
+   return [...users].sort((prevUser, nextUser) => prevUser.balance - nextUser.balance);
+};
+console.log(sortByAscendingBalance(users));
+
+// !#43=================Задача. Сортировка по количеству друзей================================================================
+// Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей отсортированный по убыванию количества их друзей (свойство friends).
+
+const sortByDescendingFriendCount = users => {
+   return [...users].sort((prevUser, nextUser) => nextUser.friends.length - prevUser.friends.length);
+};
+console.log(sortByDescendingFriendCount(users));
+
+// !#44================Задача. Сортировка по имени=============================================================================
+// Дополни функцию sortByName(users) так, чтобы она возвращала массив пользователей отсортированный по их имени (свойство name) в алфавитном порядке.
+
+const sortByName = users => {
+  return [...users].sort((prevUser, nextUser) => prevUser.name.localeCompare(nextUser.name));
+};
+console.log(sortByName(users));
+
+// !#45================Цепочки методов (чейнинг, chaining)================================================================
+// Дополни код так, чтобы в переменной names получился массив имён авторов в алфавитном порядке, рейтинг книг которых больше значения переменной MIN_BOOK_RATING.
+
+const MIN_BOOK_RATING = 8;
+
+const names = [...books]
+.filter(book => book.rating > MIN_BOOK_RATING)
+.map(book => book.author)
+.sort((a, b) => a.localeCompare(b));
+
+console.log(names);
+
+// !#46================Задача. Пользователи и друзья====================================================================
+// Дополни функцию getNamesSortedByFriendCount(users) так, чтобы она возвращала массив имён пользователей отсортированный по возрастанию количества их друзей (свойство friends).
+
+const getNamesSortedByFriendCount = users => {
+
+   return [...users]
+	.sort((prevUser, nextUser) => prevUser.friends.length - nextUser.friends.length)
+	.map(user => user.name);
+};
+
+console.log(getNamesSortedByFriendCount(users));
+
+// !#47================Задача. Имена друзей==========================================================================
+// Дополни функцию getSortedFriends(users) так, чтобы она возвращала массив уникальных имён друзей (свойство friends) отсортированный по алфавиту .
+
+const getSortedFriends = users => {
+   
+	return [...users]
+	.flatMap(user => user.friends)
+	.filter((friend, index, arr) => arr.indexOf(friend) === index)
+	.sort((a, b) => a.localeCompare(b));
+};
+
+console.log(getSortedFriends(users));
+
+// !#48===============Задача. Общий баланс========================================================================
+// Дополни функцию getTotalBalanceByGender(users, gender) так, чтобы она возвращала общий баланс пользователей (свойство balance), пол которых (свойство gender) совпадает со значением параметра gender.
+
+const getTotalBalanceByGender = (users, gender) => {
+   
+return [...users].filter(user => user.gender === gender).reduce((total, user) => total + user.balance, 0);
+};
+
+console.log(getTotalBalanceByGender(users, 'male'));
