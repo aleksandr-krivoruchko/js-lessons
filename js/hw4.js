@@ -427,26 +427,26 @@
 // Используя метод filter() дополни код так, чтобы:
 // В переменной topRatedBooks получился массив книг рейтинг которых (свойство rating) больше либо равно значению переменной MIN_RATING.
 // В переменной booksByAuthor получился массив книг написанных автором с именем (свойство author) которое совпадает со значением в переменной AUTHOR.
-// const books = [
-//   {
-//     title: "The Last Kingdom",
-//     author: "Bernard Cornwell",
-//     rating: 8.38,
-//   },
-//   {
-//     title: "Beside Still Waters",
-//     author: "Robert Sheckley",
-//     rating: 8.51,
-//   },
-//   {
-//     title: "The Dream of a Ridiculous Man",
-//     author: "Fyodor Dostoevsky",
-//     rating: 7.75,
-//   },
-//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 
-//   },
-//   { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
-// ];
+const books = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 
+  },
+  { title: "Enemy of God", author: "Bernard Cornwell", rating: 8.67 },
+];
 
 // const MIN_RATING = 8;
 // const AUTHOR = "Bernard Cornwell";
@@ -533,9 +533,9 @@ const users = [
   }
 ]
 
-const getUsersWithEyeColor = (users, color) => users.filter(user => user.eyeColor === color);
+// const getUsersWithEyeColor = (users, color) => users.filter(user => user.eyeColor === color);
 
-console.log(getUsersWithEyeColor(users, 'brown'));
+// console.log(getUsersWithEyeColor(users, 'brown'));
 
 // !#23===============Задача. Пользователи в возрастной категории========================================
 // Дополни функцию getUsersWithAge(users, minAge, maxAge) так, чтобы она возвращала массив пользователей, возраст которых (свойство age) попадает в промежуток от minAge до maxAge.
@@ -577,3 +577,44 @@ console.log(getActiveUsers(users));
 const getInactiveUsers = (users) => users.filter(user => !user.isActive);
 
 console.log(getInactiveUsers(users));
+
+// !№28===========Метод find()=====================================================================
+// Используя метод find() дополни код так, чтобы:
+// В переменной bookWithTitle получился объект книги название которой (свойство title) совпадает со значением переменной BOOK_TITLE.
+// В переменной bookByAuthor получился объект книги автор который (свойство author) совпадает со значением переменной AUTHOR.
+
+const BOOK_TITLE = 'The Dream of a Ridiculous Man';
+const AUTHOR = 'Robert Sheckley';
+
+const bookWithTitle = books.find(book => book.title === BOOK_TITLE);
+const bookByAuthor = books.find(book => book.author === AUTHOR);
+
+console.log(bookWithTitle);
+console.log(bookByAuthor);
+
+// !#29==============Задача. Пользователь с почтой==================================================
+// Дополни функцию getUserWithEmail(users, email) так, чтобы она возвращала объект пользователя, почта которого (свойство email) совпадает со значением параметра email.
+
+const getUserWithEmail = (users, email) => users.find(user => user.email === email);
+
+// !#30=============Метод every()=================================================================
+// Используя метод every() дополни код так, чтобы:
+// В переменной eachElementInFirstIsEven был результат проверки всех элементов массива firstArray на чётность.
+// В переменной eachElementInFirstIsOdd был результат проверки всех элементов массива firstArray на нечётность.
+// В переменной eachElementInSecondIsEven был результат проверки всех элементов массива secondArray на чётность.
+// В переменной eachElementInSecondIsOdd был результат проверки всех элементов массива secondArray на нечётность.
+// В переменной eachElementInThirdIsEven был результат проверки всех элементов массива thirdArray на чётность.
+// В переменной eachElementInThirdIsOdd был результат проверки всех элементов массива thirdArray на нечётность.
+
+const firstArray = [26, 94, 36, 18];
+const secondArray = [17, 61, 23];
+const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+
+const eachElementInFirstIsEven = firstArray;
+const eachElementInFirstIsOdd = firstArray;
+
+const eachElementInSecondIsEven = secondArray;
+const eachElementInSecondIsOdd = secondArray;
+
+const eachElementInThirdIsEven = thirdArray;
+const eachElementInThirdIsOdd = thirdArray;
