@@ -1,190 +1,113 @@
-// !==========Модуль 3 Занятие 6. Деструктуризация и rest/spread============
+// !=====Модуль 4. Занятие 8. Перебирающие методы массива==========================
+Коллекция объектов для всех примеров с автомобилями
+const cars = [
+  { make: 'Honda', model: 'CR-V', type: 'suv', amount: 14, price: 24045, onSale: true },
+  { make: 'Honda', model: 'Accord', type: 'sedan', amount: 2, price: 22455, onSale: true },
+  { make: 'Mazda', model: 'Mazda 6', type: 'sedan', amount: 8, price: 24195, onSale: false },
+  { make: 'Mazda', model: 'CX-9', type: 'suv', amount: 7, price: 31520, onSale: true },
+  { make: 'Toyota', model: '4Runner', type: 'suv', amount: 19, price: 34210, onSale: false },
+  { make: 'Toyota', model: 'Sequoia', type: 'suv', amount: 16, price: 45560, onSale: false },
+  { make: 'Toyota', model: 'Tacoma', type: 'truck', amount: 4, price: 24320, onSale: true },
+  { make: 'Ford', model: 'F-150', type: 'truck', amount: 11, price: 27110, onSale: true },
+  { make: 'Ford', model: 'Fusion', type: 'sedan', amount: 13, price: 22120, onSale: true },
+  { make: 'Ford', model: 'Explorer', type: 'suv', amount: 6, price: 31660, onSale: false }
+];
 
-// #1========Деструктуризация===============================================
+// Example 1 - Метод map
+// Пусть функция getModels возвращает массив моделей (поле model) всех автомобилей.
 
-// Перепиши функцию так, чтобы она принимала один объект параметров, вместо набора независимых аргументов.
-// function calcBMI(weight, height) {
-//   const numericWeight = Number(weight.replace(',', '.'));
-//   const numericHeight = Number(height.replace(',', '.'));
-//   return Number((numericWeight / numericHeight ** 2).toFixed(1));
-// }
+const getModels = cars => {};
 
-function calcBMI({ weight, height }) {
-  const numericWeight = Number(weight.replace(',', '.'));
-  const numericHeight = Number(height.replace(',', '.'));
-  return Number((numericWeight / numericHeight ** 2).toFixed(1));
-}
-
-console.log(calcBMI({ weight: '88,3', height: '1.75', }));
-console.log(
-  calcBMI({
-    weight: '68,3',
-    height: '1.65',
-  }),
-);
-console.log(
-  calcBMI({
-    weight: '118,3',
-    height: '1.95',
-  }),
-);
+console.table(getModels(cars));
 
 
-// #2=========Деструктуризация=======================================================================
+// Example 2 - Метод map
+// Пусть функция makeCarsWithDiscount возвращает новый массив объектов с изменным значением свойства price в зависимости от переданной скидки.
 
-// Перепиши функцию так, чтобы она принимала один объект параметров, вместо набора независимых аргументов.
-// function printContactsInfo(names, phones) {
-//   const nameList = names.split(',');
-//   const phoneList = phones.split(',');
-//   for (let i = 0; i < nameList.length; i += 1) {
-//     console.log(`${nameList[i]}: ${phoneList[i]}`);
-//   }
-// }
+const makeCarsWithDiscount = (cars, discount) => {};
 
-function printContactsInfo({names, phones}) {
-  const nameList = names.split(',');
-  const phoneList = phones.split(',');
-  for (let i = 0; i < nameList.length; i += 1) {
-     console.log(`${nameList[i]}: ${phoneList[i]}`);
-   }
-}
-
-printContactsInfo({
-   names: 'Jacob,William,Solomon,Artemis',
-   phones: '89001234567,89001112233,890055566377,890055566300',
-});
-
-// #3=============Глубокая деструктуризация=========================================================
-// Перепиши функцию так, чтобы она принимала один объект параметров, вместо набора независимых аргументов.
-
-// function getBotReport(companyName, repairBots, defenceBots) {
-//   return `${companyName} has ${repairBots + defenceBots} bots in stock`;
-// }
-
-function getBotReport({ companyName, bots: { repair: repairBots, defence: defenceBots } }) {
-  
-  return `${companyName} has ${repairBots + defenceBots} bots in stock`;
-}
-console.log(
-  getBotReport({
-    companyName: 'Cyberdyne Systems',
-    bots: {
-      repair: 150,
-      defence: 50,
-    },
-  }),
-);
+console.table(makeCarsWithDiscount(cars, 0.2));
+console.table(makeCarsWithDiscount(cars, 0.4));
 
 
-// #4==============Деструктуризация================================================================
-// Перепиши функцию так, чтобы она принимала объект параметров со свойствами companyName и stock и выводила репорт о количестве товаров на складе любой компании.
+// Example 3 - Метод filter
+// Пусть функция filterByPrice возвращает массив автомобилей цена которых меньше чем значение параметра threshold.
 
-function getStockReport({ companyName, stock }) {
-   let sum = 0;
+const filterByPrice = (cars, threshold) => {};
 
-   for (const item of Object.values(stock)) {
-      sum += item;
-   }
-   return `${companyName} has ${sum} item in stock`;
-}
+console.table(filterByPrice(cars, 30000));
+console.table(filterByPrice(cars, 25000));
 
-console.log(
-  getStockReport({
-    companyName: 'Belacci',
-    stock: {
-      shoes: 20,
-      skirts: 10,
-      hats: 5,
-    },
-  }),
-); // "Belacci has 35 item in stock"
 
-// #5===============Операция spread====================================================================
-// Дополни функцию createContact(partialContact) так, чтобы она возвращала новый объект контакта с добавленными свойствами id и createdAt, а также list со значением "default" если в partialContact нет такого свойства.
+// Example 4 - Метод filter
+// Пусть функция getCarsWithDiscount возвращает массив автомобилей свойство onSale которых true.
 
-function createContact(partialContact) {
-   return {
-      id:0,
-      createdAt :{ },
-   list : partialContact.list || "default",
-      ...partialContact,
-   }
-}
+const getCarsWithDiscount = cars => {};
 
-console.log(
-  createContact({
-    name: 'Mango',
-    email: 'mango@mail.com',
-    
-  }),
-);
+console.table(getCarsWithDiscount(cars));
 
-// #6======================Операция rest=============================================================
-// Напиши функцию transformUsername(user) так, чтобы она возвращала новый обьект со свойством fullName, вместо firstName и lastName.
 
-// function transformUsername({ firstName, lastName, ...args }) {
-//    return {
-      
-//       fullName: `${firstName} ${lastName}`,
-//       ...args,
-//    }
-// }
-// console.log(
-//   transformUsername({
-//     id: 2,
-//     firstName: 'Adrian',
-//     lastName: 'Cross',
-//     email: 'a.cross@hotmail.com',
-//     friendCount: 20,
-//   }),
-// );
+// Example 5 - Метод filter
+// Пусть функция getCarsWithType возвращает массив автомобилей тип которых совпадает со значением параметра type.
 
-const array = [1, 2, 3, 4, 5];
-const arr = [...array];
-console.log(array === arr);
-console.log(array[0] === arr[0]);
+const getCarsWithType = (cars, type) => {};
 
-// const a = {
-//   x: 10,
-//   y: 25,
-//   z: 44,
-// }
+console.table(getCarsWithType(cars, 'suv'));
+console.table(getCarsWithType(cars, 'sedan'));
 
-// const b = {
-//   x: 22,
-//   y: 35,
-//   z: 24,
-// }
 
-// const c = {
-//   x: 12,
-//   y: 5,
-//   r: 66,
-//   u: 33,
-// }
+// Example 6 - Метод find
 
-// const d = {
-//   ...b,
-//   ...a,
-//   ...c,
-//   x:444,
-// }
+const getCarByModel = (cars, model) => {};
 
-// console.log(d);
+console.log(getCarByModel(cars, 'F-150'));
+console.log(getCarByModel(cars, 'CX-9'));
 
-// const numbers = [5, 10, 15, 20, 25];
 
-// // Классический for
-// for (let i = 0; i < numbers.length; i += 1) {
-//   console.log(`Индекс ${i}, значение ${numbers[i]}`);
-// }
+// Example 7 - Метод sort
+// Пусть функция sortByAscendingAmount возвращает новый массив автомобилей отсортированный по возврастанию значения свойства amount.
 
-// // Перебирающий forEach
-// numbers.forEach(function (number, index) {
-//   console.log(`Индекс ${index}, значение ${number}`);
-// });
+const sortByAscendingAmount = cars => {};
 
-// Декларативный подход
-const numbers = [1, 2, 3, 4, 5];
-const filteredNumbers = numbers.filter(value => value > 3);
-console.log(filteredNumbers); // [4, 5]
+console.table(sortByAscendingAmount(cars));
+
+
+// Example 8 - Метод sort
+// Пусть функция sortByDescendingPrice возвращает новый массив автомобилей отсортированный по убыванию значения свойства price.
+
+const sortByDescendingPrice = cars => {};
+
+console.table(sortByDescendingPrice(cars));
+
+
+// Example 9 - Метод sort
+// Пусть функция sortByModel возвращает новый массив автомобилей отсортированный по названию модели в алфавитном и обратном алфавитном порядке, в засисимости от значения параметра order.
+
+const sortByModel = (cars, order) => {};
+
+console.table(sortByModel(cars, 'asc'));
+console.table(sortByModel(cars, 'desc'));
+
+
+// Example 10 - Метод reduce
+// Пусть функция getTotalAmount возвращает общее количество автомобилей(значение свойств amount).
+
+const getTotalAmount = cars => {};
+
+console.log(getTotalAmount(cars));
+
+
+// Example 11 - Цепочки методов
+// Пусть функция getAvailableCarNames возвращает массив моделей автомобилей, но только тех, которые сейчас на распродаже.
+
+const getModelsOnSale = cars => {};
+
+console.table(getModelsOnSale(cars));
+
+
+// Example 12 - Цепочки методов
+// Пусть функция getSortedCarsOnSale возвращает массив автомобилей на распродаже (свойство onSale), отсортированных по возрастанию цены.
+
+const getSortedCarsOnSale = cars => {};
+
+console.table(getSortedCarsOnSale(cars));
