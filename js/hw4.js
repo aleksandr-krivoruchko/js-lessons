@@ -699,7 +699,7 @@ console.log(calculateTotalBalance(users));
 // Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала общее количество друзей (свойство friends) всех пользователей из массива users.
 
 const getTotalFriendCount = users => {
-   return users.reduce((prevFriendLength, user) => prevFriendLength += user.friends.length, 0);
+   return users.reduce((allFriends, user) => allFriends += user.friends.length, 0);
 };
 console.log(getTotalFriendCount(users));
 
@@ -818,3 +818,5 @@ return [...users].filter(user => user.gender === gender).reduce((total, user) =>
 };
 
 console.log(getTotalBalanceByGender(users, 'male'));
+
+

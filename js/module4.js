@@ -23,10 +23,15 @@ const getModels = cars => cars.map(car => car.model);
 console.table(getModels(cars));
 
 
-// Example 2 - Метод map
+//todo Example 2 - Метод map добавить распыление!!!!
 // Пусть функция makeCarsWithDiscount возвращает новый массив объектов с измененным значением свойства price в зависимости от переданной скидки.
 
-const makeCarsWithDiscount = (cars, discount) => cars.map(car => car.price + car.price * discount);
+const makeCarsWithDiscount = (cars, discount) => cars.map(car => {
+	return {
+		...car,
+		price: car.price * (1 - discount),
+	}
+});
 
 console.table(makeCarsWithDiscount(cars, 0.2));
 
@@ -114,10 +119,13 @@ const getModelsOnSale = cars => cars.filter(({onSale}) => onSale).map(car => car
 console.table(getModelsOnSale(cars));
 
 
-// Example 12 - Цепочки методов
+// Example 12 - Цепочки методов (!!!!можно без мэп!!!!!!)
 // Пусть функция getSortedCarsOnSale возвращает массив автомобилей на распродаже (свойство onSale), отсортированных по возрастанию цены.
 
-const getSortedCarsOnSale = cars => cars.filter(({onSale}) => onSale).sort((a, b) => a.price - b.price).map(car => car.model);
+const getSortedCarsOnSale = cars => cars
+.filter(({onSale}) => onSale)
+.sort((a, b) => a.price - b.price)
+.map(car => car.model);
 
 console.table(getSortedCarsOnSale(cars));
 
