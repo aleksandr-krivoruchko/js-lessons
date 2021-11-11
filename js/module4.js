@@ -120,3 +120,50 @@ console.table(getModelsOnSale(cars));
 const getSortedCarsOnSale = cars => cars.filter(({onSale}) => onSale).sort((a, b) => a.price - b.price).map(car => car.model);
 
 console.table(getSortedCarsOnSale(cars));
+
+// ================ЗАДАЧА из фрикодкемпа==================================
+// Для данного idпараметра, который связан с records  объектом:
+// * Если valueпараметр не является пустой строкой, обновите (или установите) valueпараметр для propпараметра.
+// * Если prop параметр равен "tracks"и value не является пустой строкой, поместите valueв конец tracks массива.
+// * Если value это пустая строка, удалите ее prop из объекта.
+
+const recordCollection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
+
+function updateRecords(records, id, prop, value) {
+  if (prop !== 'tracks' && value !== "") {
+    records[id][prop] = value;
+
+  } else if (prop === "tracks" && records[id].hasOwnProperty("tracks") === false) {
+    records[id][prop] = [value];
+
+  } else if (prop === "tracks" && value !== "") {
+    records[id][prop].push(value);
+
+  } else if (value === "") {
+    delete records[id][prop];
+  }
+  
+  return records;
+}
+console.table(updateRecords(recordCollection, 5439, 'artist', 'ABBA'));
+console.table(updateRecords(recordCollection, 5439, "tracks", "Take a Chance on Me"));
+
+
