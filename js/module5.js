@@ -123,33 +123,42 @@
 // addItem(item) - получает новый товар и добавляет его к текущим.
 // removeItem(item) - получает товар и, если он есть, удаляет его из текущих.
 
-// class Storage {
-// constructor(array = []){
-// this.items = array;
-// }
-// getItems(){
-// 	return this.items;
-// }
+class Storage {
+constructor(array = []){
+this.items = array;
+}
+getItems(){
+	return this.items;
+}
+// todo    сделать распылением
 // addItem(item){
 // 	this.items.push(item);
 // }
+addItem(newItem){
+	this.items = [...this.items, newItem];
+}
+// todo     удалить через фильтр
 // removeItem(item){
 // 	const remItem = this.items.find(value => value === item);
 // 	const indexRemItem = this.items.indexOf(remItem);
 // 	this.items.splice(indexRemItem, 1);
 // }
-// }
+removeItem(itemToDelete){
+	this.items = this.items.filter(item => item !== itemToDelete);
+}
 
-// const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
+}
 
-// const items = storage.getItems();
-// console.table(items); // [ '🍎', '🍋', '🍇', '🍑' ]
+const storage = new Storage(['🍎', '🍋', '🍇', '🍑']);
 
-// storage.addItem('🍌');
-// console.table(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+const items = storage.getItems();
+console.table(items); // [ '🍎', '🍋', '🍇', '🍑' ]
 
-// storage.removeItem('🍋');
-// console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
+storage.addItem('🍌');
+console.table(storage.items); // [ '🍎', '🍋', '🍇', '🍑', '🍌' ]
+
+storage.removeItem('🍇');
+console.table(storage.items); // [ '🍎', '🍇', '🍑', '🍌' ]
 
 //? Example 3 - User
 // Напиши класс User который создаёт объект со свойствами login и email. Объяви приватные свойства #login и #email, доступ к которым сделай через геттер и сеттер login и email.
@@ -205,68 +214,80 @@
 // }
 // Добавь методы addNote(note), removeNote(text) и updatePriority(text, newPriority).
 
-// class Notes{
+class Notes{
 
-// static Priority = {
-// 	LOW: 'low',
-//    NORMAL: 'normal',
-//    HIGH: 'high'
-// }
-// constructor(array = []){
-// 	this.items = array;
-// }
-// addNote(note){
-// 	this.items.push(note);
-// }
+static Priority = {
+	LOW: 'low',
+   NORMAL: 'normal',
+   HIGH: 'high'
+}
+constructor(items){
+	this.items = items;
+}
+addNote(note){
+	this.items.push(note);
+}
+// todo     удалить через фильтр
 // removeNote(text){
 // const remItem = this.items.find(item => item.text === text);
 // const indexRemItem = this.items.indexOf(remItem);
 // this.items.splice(indexRemItem, 1);
 // }
+removeNote(text){
+	this.items = this.items.filter(item => item.text !== text);
+}
 
+// todo     сделать  через map
 // updateNote(text, newPriority){
-// 	this.items.find(item => item.text === text).priority = newPriority;
+// this.items.find(item => item.text === text).priority = newPriority;
 // }
-// }
+updateNote(text, newPriority){
+	this.items = this.items.map(item => item.text === text ? {...item, newPriority} : item);
+}
+ }
 
-// const myNotes = new Notes([]);
+const myNotes = new Notes([]);
 
-// myNotes.addNote({ text: 'Моя первая заметка', priority: Notes.Priority.LOW });
-// console.log(myNotes.items);
+myNotes.addNote({ text: 'Моя первая заметка', priority: Notes.Priority.LOW });
+console.log(myNotes.items);
 
-// myNotes.addNote({
-//   text: 'Моя вторая заметка',
-//   priority: Notes.Priority.NORMAL,
-// });
-// console.log(myNotes.items);
+myNotes.addNote({
+  text: 'Моя вторая заметка',
+  priority: Notes.Priority.NORMAL,
+});
+console.log(myNotes.items);
 
-// myNotes.removeNote('Моя первая заметка');
-// console.log(myNotes.items);
+myNotes.removeNote('Моя первая заметка');
+console.log(myNotes.items);
 
-// myNotes.updateNote('Моя вторая заметка', Notes.Priority.HIGH);
-// console.log(myNotes.items);
+myNotes.updateNote('Моя вторая заметка', Notes.Priority.HIGH);
+console.log(myNotes.items);
 
 //? Example 5 - Toggle
 // Напишите класс Toggle который принимает объект настроек {isOpen: boolean} и объявляет одно свойство on - состояние вкл/выкл (true/false). По умолчанию значение свойства on должно быть false.
 
-class Toggle {
+// class Toggle {
 
-constructor({isOpen = false}){
-this.on = isOpen;
-}
+// constructor({isOpen = false} = {}){
+// this.on = isOpen;
+// }
 
-}
+// toggle(){
+// 	this.on = !this.on;
+// }
 
-const firstToggle = new Toggle({ isOpen: true });
-console.group('firstToggle');
-console.log(firstToggle.on);
-firstToggle.toggle();
-console.log(firstToggle.on);
-console.groupEnd('firstToggle');
+// }
 
-const secondToggle = new Toggle();
-console.group('secondToggle');
-console.log(secondToggle.on);
-secondToggle.toggle();
-console.log(secondToggle.on);
-console.groupEnd('secondToggle');
+// const firstToggle = new Toggle({ isOpen: true });
+// console.group('firstToggle');
+// console.log(firstToggle.on);
+// firstToggle.toggle();
+// console.log(firstToggle.on);
+// console.groupEnd('firstToggle');
+
+// const secondToggle = new Toggle();
+// console.group('secondToggle');
+// console.log(secondToggle.on);
+// secondToggle.toggle();
+// console.log(secondToggle.on);
+// console.groupEnd('secondToggle');
