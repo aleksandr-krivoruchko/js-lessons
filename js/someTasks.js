@@ -240,3 +240,79 @@ return x2;
 }
 
 console.log(nbYear(1500, 5, 100, 5000));
+
+// !============codewars task 4=======================
+// accum("abcd") -> "A-Bb-Ccc-Dddd"
+// accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// accum("cwAt") -> "C-Ww-Aaa-Tttt"
+// The parameter of accum is a string which includes only letters from a..z and A..Z.
+
+function accum(str) {
+	const letters = str.split("");
+	let arr = [];
+
+	for (let i = 0; i < letters.length; i++) {
+
+		arr.push(letters[i].toUpperCase() + letters[i].toLowerCase().repeat(i));
+		
+	}
+	return arr.join("-");
+}
+
+console.log(accum("RqaEzty"));
+
+// !============codewars task 5=======================
+// Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+// Rules for a smiling face:
+// Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+// A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+// Every smiling face must have a smiling mouth that should be marked with either ) or D
+// No additional characters are allowed except for those mentioned.
+// Valid smiley face examples: :) :D ;-D :~)
+// Invalid smiley faces: ;( :> :} :]
+// Example
+// countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+// countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
+// countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
+
+function countSmileys(smiles) {
+
+	const arr = smiles.filter(smile =>
+		   smile.includes(':' && ')')
+		|| smile.includes(';' && ')')
+		|| smile.includes(':' && 'D')
+		|| smile.includes(';' && 'D'));
+	console.log(arr);
+	return arr.filter(nose => nose.length === 2 || nose.includes('~') || nose.includes('-')).length;
+}
+	
+console.log(countSmileys([':)', ';(', ';}', ':-D', ':*)', '{}']));//2
+console.log(countSmileys([';D', ':-(', ':-)', ';~)']));//3
+console.log(countSmileys([]));//0
+
+// !============codewars task 6=======================
+
+// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+// Examples:
+// solution('abc', 'bc') // returns true
+// solution('abc', 'd') // returns false
+
+function solution(str, ending) {
+	return str.endsWith(ending);
+}
+console.log(solution('abc', 'bc'));
+
+// !============codewars task 7=======================
+// Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+// Example:
+// Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+// Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+
+String.prototype.toJadenCase = function () {
+
+		 return this.split(' ').map(word => word[0].toUpperCase() + word.slice(1, word.length)).join(' ');
+}
+
+const ghj = new String( "How can mirrors be real if our eyes aren't real" );
+
+console.log(ghj.toJadenCase());
