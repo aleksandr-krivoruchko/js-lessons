@@ -272,7 +272,25 @@
 // 		total += firstYear + firstYear * (percent / 100) + aug;
 // 	}
 
+<<<<<<< Updated upstream
 // console.log(nbYear(1500, 5, 100, 5000));
+=======
+// // 	const firstYear = p0 + p0 * (percent / 100) + aug;
+// // const secYear = firstYear + firstYear * (percent / 100) + aug;
+// 	return total;
+// }
+
+// function nbYear(p0, percent, aug, p) {
+
+// 	for (let i = p0; i <= p; i += p0 + p0 * percent + aug ) {
+// 		console.log(i);
+// 	}
+	
+// 	return i;
+// }
+
+// console.log(nbYear(1500, 0.05, 100, 5000));
+>>>>>>> Stashed changes
 
 // !============codewars task 4=======================
 // accum("abcd") -> "A-Bb-Ccc-Dddd"
@@ -400,3 +418,14 @@
 console.log(high('man i need a taxi up to ubud'));//taxi
 console.log(high('what time are we climbing up the volcano'));//volcano
 
+<<<<<<< Updated upstream
+=======
+console.log(ghj.toJadenCase());
+
+
+const arr22 = [1, 1, 1, 1, 2, 3, 3, 3, 3, 4, 5, 5];
+const set = new Set([1, 1, 1, 1, 2, 3, 3, 3, 3, 4, 5, 5]);
+
+console.log(arr22);
+console.log(set);
+>>>>>>> Stashed changes
