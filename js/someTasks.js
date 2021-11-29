@@ -354,22 +354,22 @@
 // Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
 // For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
 
-function sumTwoSmallestNumbers(numbers) {
-	return numbers.sort((a,b) => a - b)[0] + numbers.sort((a,b) => a - b)[1];
+// function sumTwoSmallestNumbers(numbers) {
+// 	return numbers.sort((a,b) => a - b)[0] + numbers.sort((a,b) => a - b)[1];
 
-}
+// }
 
-console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77]));
+// console.log(sumTwoSmallestNumbers([19, 5, 42, 2, 77]));
 
 // !=============codewars task 9=======================
 // Реализуйте функцию, которая принимает 3 целочисленных значения a, b, c. Функция должна возвращать истину, если треугольник можно построить со сторонами заданной длины, и ложь в любом другом случае.
 // (В этом случае для принятия все треугольники должны иметь поверхность больше 0).
 
-function isTriangle(a,b,c){
-	return a + b > c && c + b > a && a + c > b;
-}
+// function isTriangle(a,b,c){
+// 	return a + b > c && c + b > a && a + c > b;
+// }
 
-console.log(isTriangle(10, 2, 2));
+// console.log(isTriangle(10, 2, 2));
 
 // !=============codewars task 10=======================
 // Задана строка слов, вам нужно найти слово, набравшее наибольшее количество очков.
@@ -377,6 +377,26 @@ console.log(isTriangle(10, 2, 2));
 // Вам нужно вернуть слово, набравшее наибольшее количество очков, в виде строки.
 // Если два слова набрали одинаковое количество очков, верните слово, которое встречается раньше всех в исходной строке.
 // Все буквы будут строчными, а все вводимые данные - действительными.
-function high(x){
 
-}
+// ? my version
+// function high(x){
+// 	const arr1 = x.split(' ');
+// 	let arr2 = [];
+// 	arr1.forEach(word => {
+// 		arr2.push(word.split('').map(letter => (letter.charCodeAt() - 96)).reduce((acc, i) => { return acc + i }, 0));
+// });
+// 	const idx = arr2.indexOf(Math.max(...arr2));
+// 	return arr1[idx];
+// }
+
+// ? the best version
+// function high(s){
+//   let as = s.split(' ').map(s=>[...s].reduce((a,b)=>a+b.charCodeAt(0)-96,0));
+//   return s.split(' ')[as.indexOf(Math.max(...as))];
+// }
+
+
+
+console.log(high('man i need a taxi up to ubud'));//taxi
+console.log(high('what time are we climbing up the volcano'));//volcano
+
