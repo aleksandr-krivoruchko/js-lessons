@@ -439,14 +439,60 @@
 // foo099 -> foo100
 // Внимание: Если в числе есть ведущие нули, необходимо учитывать количество цифр.
 
-function incrementString (string) {
-string = "vvdv44";
-	// const incrementedString = string.endsWith(!Number.isNaN(Number(string[string.length - 1])));
- const q = Number.parseInt(string);
- console.log(q);
- 	return Number.isNaN(Number.parseInt(string)) ? string + '1': string + (Number.parseInt(string) + 1);
+// function incrementString (string) {
+// string = "vvdv44";
+// 	// const incrementedString = string.endsWith(!Number.isNaN(Number(string[string.length - 1])));
+//  const q = Number.parseInt(string);
+//  console.log(q);
+//  	return Number.isNaN(Number.parseInt(string)) ? string + '1': string + (Number.parseInt(string) + 1);
     
+// }
+
+// console.log(incrementString ('foo33'));
+// console.log(Number.parseInt("12vvdv44"));
+
+
+//!      ЗАМЫКАНИЕ              
+function generateUrl(dom) {
+	return function (url) {
+		console.log(`https://${url}.${dom}`);
+	}
 }
 
-console.log(incrementString ('foo33'));
-console.log(Number.parseInt("12vvdv44"));
+const qqq = generateUrl('com')
+
+qqq('google')
+
+
+function sum(x) {
+	return function (y) {
+		console.log(x+y);
+	}
+}
+const calc = sum(55);
+
+calc();
+
+
+
+// ! Написать свою функцию bind
+
+const person = {
+	name: 'Samuel',
+	age:36,
+	job:'surveyor'
+}
+
+function logPerson() {
+	console.log(`Person ${this.name} is ${this.age} years old works as a ${this.job}`);
+}
+
+function bind(context, callback){
+
+	return function(...args){
+callback.apply(context, args)
+	}
+}
+
+bind(person, logPerson)()
+
