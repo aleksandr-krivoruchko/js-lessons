@@ -396,7 +396,77 @@
 // }
 
 
+// console.log(high('man i need a taxi up to ubud'));//taxi
+// console.log(high('what time are we climbing up the volcano'));//volcano
 
-console.log(high('man i need a taxi up to ubud'));//taxi
-console.log(high('what time are we climbing up the volcano'));//volcano
 
+
+
+// !==========Вернуть количество людей онлайн(freeBootCamp)==================
+// function countOnline(usersObj) {
+// 	let count = 0;
+	
+// 	for (let user in usersObj) {
+	
+// if (usersObj[user].online) {
+// 	count += 1;
+// }
+// }
+// return count;
+// }
+
+// console.log(countOnline({ Alan: { online: false }, Jeff: { online: true }, Sarah: { online: false } }));
+// console.log(countOnline({ Alan: { online: true }, Jeff: { online: false }, Sarah: { online: true } }));
+
+
+// !===============Вернуть массив друзей с добавленным из аргумента другом онлайн(freeBootCamp)==========================
+let user = {
+  name: 'Kenneth',
+  age: 28,
+  data: {
+    username: 'kennethCodesAllDay',
+    joinDate: 'March 26, 2016',
+    organization: 'freeCodeCamp',
+    friends: [
+      'Sam',
+      'Kira',
+      'Tomo'
+    ],
+    location: {
+      city: 'San Francisco',
+      state: 'CA',
+      country: 'USA'
+    }
+  }
+};
+
+function addFriend(userObj, friend) {
+	const q = userObj.data.friends;
+	q.push(friend);
+	return q;
+}
+
+console.log(addFriend(user, 'Pete'));
+
+
+// !===============Возвращает факториал заданного целого числа(freeBootCamp)==========================
+
+function factorialize(num) {
+	let fuck = 1;
+  for (let i = 1; i <= num; i++) {
+	  
+	  fuck *= i;
+  }
+  return fuck;
+}
+
+// *с использованием рекурсии
+function factorialize(num) {
+  if (num === 0) {
+    return 1;
+  }
+  return num * factorialize(num - 1);
+}
+
+
+console.log(factorialize(5));
