@@ -17,6 +17,7 @@
 // genres.unshift('Country', 'Reggy');
 // console.log(genres);
 
+
 // ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // Example 2 - Массивы и строки
 // Напиши скрипт для вычисления площади прямоугольника со сторонами, значения которых хранятся в переменной values в виде строки. Значения гарантированно разделены пробелом.
@@ -363,22 +364,24 @@ const contacts = [
 ];
 
 
-function lookUpProfile(name, prop) {
-  for (let i = 0; i < contacts.length; i += 1) {
+// function lookUpProfile(name, prop) {
+//   for (let i = 0; i < contacts.length; i += 1) {
 
-    if (contacts[i].firstName === name) {
+//     if (contacts[i].firstName === name) {
 
-      if (contacts[i].hasOwnProperty(prop)) {
-        return contacts[i][prop];
+//       if (contacts[i].hasOwnProperty(prop)) {
+//         return contacts[i][prop];
 
-      } else {
-        return "No such property";
-      }
-    }
-  }
+//       } else {
+//         return "No such property";
+//       }
+//     }
+//   }
 
-  return "No such contact";
-}
+//   return "No such contact";
+// }
 
-console.log(lookUpProfile("Akira", "likes"));
-console.log(lookUpProfile("Sherlock", "likes"));
+// console.log(lookUpProfile("Akira", "likes"));
+// console.log(lookUpProfile("Sherlock", "likes"));
+
+
