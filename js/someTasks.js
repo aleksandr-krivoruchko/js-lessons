@@ -266,13 +266,21 @@
 // Не забудьте преобразовать параметр percent в проценты в теле вашей функции: если параметр percent равен 2, вы должны преобразовать его в 0.02.
 
 // function nbYear(p0, percent, aug, p) {
-// 	const firstYear = p0 + p0 * (percent / 100) + aug;
-// 	let total = firstYear;
-// 	if(firstYear !== p){
-// 		total += firstYear + firstYear * (percent / 100) + aug;
+//  let acc = p0;
+
+// for (let i = 0; i < 100; i++) {
+// 	acc = acc + acc * (percent / 100) + aug;
+// 	console.log(acc);
+// 	if (acc >= p) {
+// 		return i + 1;
+// 	}
+// }
 // 	}
 
 // console.log(nbYear(1500, 5, 100, 5000));
+// console.log(nbYear(1500000, 2.5, 10000, 2000000));
+// console.log(nbYear(1000, 2, 50, 1200));
+
 
 // !============codewars task 4=======================
 // accum("abcd") -> "A-Bb-Ccc-Dddd"
@@ -321,7 +329,7 @@
 	
 // console.log(countSmileys([':)', ';(', ';}', ':-D', ':*)', '{}']));//2
 // console.log(countSmileys([';D', ':-(', ':-)', ';~)']));//3
-// console.log(countSmileys([]));//0
+// console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']));//1
 
 // !============codewars task 6=======================
 
@@ -394,11 +402,99 @@
 //   let as = s.split(' ').map(s=>[...s].reduce((a,b)=>a+b.charCodeAt(0)-96,0));
 //   return s.split(' ')[as.indexOf(Math.max(...as))];
 // }
-
-
 // console.log(high('man i need a taxi up to ubud'));//taxi
 // console.log(high('what time are we climbing up the volcano'));//volcano
 
+// !=============codewars task 11=======================
+// Панграмма - это предложение, в котором каждая буква алфавита встречается хотя бы один раз. Например, предложение "The quick brown fox jumps over the lazy dog" является панграммой, потому что в нем хотя бы один раз используются буквы A-Z (регистр не имеет значения).
+// Получив строку, определите, является ли она панграммой. Верните True, если это так, и False, если нет. Игнорируйте цифры и пунктуацию.
+
+// ? my version
+// function isPangram(string){
+// 	const uniq = [...new Set(string.toLowerCase().split(''))]
+// 	             .filter(l => l !== ' ' && l !== ',' && l !== ':' && l !== '.' && Number.isNaN(Number(l))).sort();
+
+// 	return uniq[uniq.length - 1].charCodeAt() - uniq[0].charCodeAt() === 25 && uniq.length === 26;
+// }
+// console.log(isPangram("The quick brown fox jumps over the lazy dog."));
+// console.log(isPangram("abcdefghijklmopqrstuvwxyz"));
+
+// ? the best version
+// function isPangram(string){
+//   return 'abcdefghijklmnopqrstuvwxyz'
+//     .split('')
+//     .every((x) => string.toLowerCase().includes(x));
+// }
+
+
+// !=============codewars task 12=======================
+// Ваша задача - написать функцию, которая увеличивает строку, чтобы создать новую строку.
+// Если строка уже заканчивается числом, то это число должно быть увеличено на 1.
+// Если строка не заканчивается числом, то к новой строке должно быть добавлено число 1.
+// Примеры:
+// foo -> foo1
+// foobar23 -> foobar24
+// foo0042 -> foo0043
+// foo9 -> foo10
+// foo099 -> foo100
+// Внимание: Если в числе есть ведущие нули, необходимо учитывать количество цифр.
+
+// function incrementString (string) {
+// string = "vvdv44";
+// 	// const incrementedString = string.endsWith(!Number.isNaN(Number(string[string.length - 1])));
+//  const q = Number.parseInt(string);
+//  console.log(q);
+//  	return Number.isNaN(Number.parseInt(string)) ? string + '1': string + (Number.parseInt(string) + 1);
+    
+// }
+
+// console.log(incrementString ('foo33'));
+// console.log(Number.parseInt("12vvdv44"));
+
+
+//!      ЗАМЫКАНИЕ              
+function generateUrl(dom) {
+	return function (url) {
+		console.log(`https://${url}.${dom}`);
+	}
+}
+
+const qqq = generateUrl('com')
+
+qqq('google')
+
+
+function sum(x) {
+	return function (y) {
+		console.log(x+y);
+	}
+}
+const calc = sum(55);
+
+calc();
+
+
+
+// ! Написать свою функцию bind
+
+const person = {
+	name: 'Samuel',
+	age:36,
+	job:'surveyor'
+}
+
+function logPerson() {
+	console.log(`Person ${this.name} is ${this.age} years old works as a ${this.job}`);
+}
+
+function bind(context, callback){
+
+	return function(...args){
+callback.apply(context, args)
+	}
+}
+
+bind(person, logPerson)()
 
 
 
