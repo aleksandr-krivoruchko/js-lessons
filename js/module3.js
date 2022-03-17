@@ -310,27 +310,27 @@ console.log(
 // #6======================Операция rest=============================================================
 // Напиши функцию transformUsername(user) так, чтобы она возвращала новый обьект со свойством fullName, вместо firstName и lastName.
 
-// function transformUsername({ firstName, lastName, ...args }) {
-//    return {
+function transformUsername({ firstName, lastName, ...args }) {
+   return {
       
-//       fullName: `${firstName} ${lastName}`,
-//       ...args,
-//    }
-// }
-// console.log(
-//   transformUsername({
-//     id: 2,
-//     firstName: 'Adrian',
-//     lastName: 'Cross',
-//     email: 'a.cross@hotmail.com',
-//     friendCount: 20,
-//   }),
-// );
+      fullName: `${firstName} ${lastName}`,
+      ...args,
+   }
+}
+console.log(
+  transformUsername({
+    id: 2,
+    firstName: 'Adrian',
+    lastName: 'Cross',
+    email: 'a.cross@hotmail.com',
+    friendCount: 20,
+  }),
+);
 
 const array = [1, 2, 3, 4, 5];
 const arr = [...array];
 console.log(array === arr);
-console.log(array[0] === arr[0]);
+console.log(array[3] === arr[3]);
 
 // const a = {
 //   x: 10,

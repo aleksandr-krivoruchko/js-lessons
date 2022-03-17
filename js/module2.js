@@ -72,10 +72,11 @@
 // const string = 'Welcome to the future';
 // const array = string.split("");
 // let newString = "";
-// for (let i = array.length - 1; 0 <= i; i--) {
+// for (let i = array.length - 1; i >= 0; i--) {
 // 	newString += array[i];
 // }
-// console.log(newString);
+// console.log(newString);//erutuf eht ot emocleW
+// console.log(string.split("").reverse().join(''));//erutuf eht ot emocleW
 
 // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 // Example 7 - Сортировка массива с циклом
@@ -90,7 +91,9 @@
 // langs.sort();
 
 // for (let i = 0; i < langs.length; i += 1) {
+//   console.log(langs[i]);
 //   for (let j = i + 1; j < langs.length; j += 1) {
+//     console.log(langs[j]);
 //     if (langs[i][0] > langs[j][0]) {
 //       const tmp = langs[i];
 //       langs[i] = langs[j];
@@ -124,7 +127,7 @@
 // Примеры выходных данных: -3 Hold или 5 Bet
 
 // Совет
-// НЕ сбрасывайте countна 0, когда значение равно 7, 8 или 9.
+// НЕ сбрасывайте count на 0, когда значение равно 7, 8 или 9.
 // НЕ возвращайте массив.
 // НЕ включайте в вывод кавычки (одинарные или двойные).
 
@@ -293,16 +296,14 @@
 // Example 8 - Форматирование времени
 // Напиши функцию formatTime(minutes) которая переведёт значение minutes (количество минут) в строку в формате часов и минут HH:MM.
 
-// const hours = Math.floor(totalMinutes / 60);
-// const minutes = totalMinutes % 60;
-// console.log(hours);
-// console.log(minutes);
-
+// function formatTime(totalMinutes) {
+//   const hours = Math.floor(totalMinutes / 60);
+//   const minutes = totalMinutes % 60;
 // const doubleDigitHours = String(hours).padStart(2, 0);
 // const doubleDigitMinutes = String(minutes).padStart(2, 0);
-// console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
+// return `${doubleDigitHours}:${doubleDigitMinutes}`
 
-// function formatTime(minutes) {}
+// }
 
 // console.log(formatTime(70)); // "01:10"
 // console.log(formatTime(450)); // "07:30"
@@ -336,32 +337,32 @@
 // Если name не соответствует ни одному контакту, вернуть строку No such contact.
 // Если prop не соответствует каким-либо действительным свойствам найденного контакта, nameверните строку No such property.
 
-const contacts = [
-  {
-    firstName: "Akira",
-    lastName: "Laine",
-    number: "0543236543",
-    likes: ["Pizza", "Coding", "Brownie Points"],
-  },
-  {
-    firstName: "Harry",
-    lastName: "Potter",
-    number: "0994372684",
-    likes: ["Hogwarts", "Magic", "Hagrid"],
-  },
-  {
-    firstName: "Sherlock",
-    lastName: "Holmes",
-    number: "0487345643",
-    likes: ["Intriguing Cases", "Violin"],
-  },
-  {
-    firstName: "Kristian",
-    lastName: "Vos",
-    number: "unknown",
-    likes: ["JavaScript", "Gaming", "Foxes"],
-  },
-];
+// const contacts = [
+//   {
+//     firstName: "Akira",
+//     lastName: "Laine",
+//     number: "0543236543",
+//     likes: ["Pizza", "Coding", "Brownie Points"],
+//   },
+//   {
+//     firstName: "Harry",
+//     lastName: "Potter",
+//     number: "0994372684",
+//     likes: ["Hogwarts", "Magic", "Hagrid"],
+//   },
+//   {
+//     firstName: "Sherlock",
+//     lastName: "Holmes",
+//     number: "0487345643",
+//     likes: ["Intriguing Cases", "Violin"],
+//   },
+//   {
+//     firstName: "Kristian",
+//     lastName: "Vos",
+//     number: "unknown",
+//     likes: ["JavaScript", "Gaming", "Foxes"],
+//   },
+// ];
 
 
 // function lookUpProfile(name, prop) {
