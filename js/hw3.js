@@ -1,3 +1,24 @@
+const arr = [1, 2, 3, 4, 5]
+const iterator = arr[Symbol.iterator]()
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+console.log(iterator.next());
+
+const str = 'wqweqwewee';
+const obj = {
+   1: '111',
+   2: '222',
+   3: '333'
+}
+const arrFromStr = Array.from(str);
+console.log(arrFromStr);
+const arrFromobj = Array.of(1,2,3);
+console.log(arrFromobj);
+
+
 //! # 10 ======= Цикл for...in =======================================================================
 
 // Перебери объект apartment используя цикл for...in и запиши в массив keys все его ключи, а в массив values
