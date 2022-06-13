@@ -21,50 +21,49 @@
 // !==============УДАЛЕНИЕ ДУБЛИКАТОВ (УНИКАЛЬНЫЕ ЗНАЧЕНИЯ)===========================
 // получить новый массив с уникальными значениями
 // const array = [1, 2, 3, 3, 4, 5, 6, 6, 7];
-
+// const str = "abcdef";
+// const array1 = [...str];
 // 1 способ (через фильтр)
-	// const uniqArray = array.filter((num, i) => array.indexOf(num) === i);//индексОф возвращает индекс значения первый раз встреченного
-	// console.log(uniqArray);
+// const uniqArray = array.filter((num, i) => array.indexOf(num) === i); //индексОф возвращает индекс значения первый раз встреченного
+// console.log(uniqArray);
 
 // 2 способ (через сет)
-// console.log(new Set(array));//обьект уник.значений
-// console.log([...new Set(array)]);//массив уник.значений распылением 
-// console.log(Array.from(new Set(array)));//массив уник.значений методом Array 
+// console.log(new Set(array)); //обьект уник.значений
+// console.log([...new Set(array)]);//массив уник.значений распылением
+// console.log(Array.from(new Set(array)));//массив уник.значений методом Array
 
 // 3 способ (через редьюс)
 // const uniqArr = array.reduce((uniq, item) => {
-// return uniq.includes(item) ? uniq : [...uniq, item];//или запушить еще можно в новый массив
-// }, [])
+//   return uniq.includes(item) ? uniq : [...uniq, item]; //или запушить еще можно в новый массив
+// }, []);
 // console.log(uniqArr);
 
 // 4 способ (через ключи обьекта)
-//  const arrayLetters = [...array];
+// const arrayLetters = [...array1];
 // let temp = {};
-// arrayLetters.forEach((item, i) => temp[item] = i);
-
+// arrayLetters.forEach((item, i) => (temp[item] = i));
 // console.log(Object.keys(temp));
 
+// !=========УДАЛЕНИЕ ВСЕХ ЭЛЕМЕНТОВ МАССИВА===================
 
-	// !=========УДАЛЕНИЕ ВСЕХ ЭЛЕМЕНТОВ МАССИВА===================
+// let cities = ['pavlograd', 'ternovka', 'pershik'];
+// cities.length = 0;
+// console.log(cities);
 
-	// let cities = ['pavlograd', 'ternovka', 'pershik'];
-	// cities.length = 0;
-	// console.log(cities);
+// !==========ЗАГЛАВНАЯ БУКВА СТРОКИ===========================
 
-	// !==========ЗАГЛАВНАЯ БУКВА СТРОКИ===========================
+// const str = 'я изучаю язык';
+// const capitalizeFirstLetter = (str) =>{
+// 	return str[0].toUpperCase() + str.substring(1);//1 СПОСОБ
 
-	// const str = 'я изучаю язык';
-	// const capitalizeFirstLetter = (str) =>{
-	// 	return str[0].toUpperCase() + str.substring(1);//1 СПОСОБ
+// 	return str[0].toUpperCase() + str.slice(1, str.length);//2 СПОСОБ
 
-	// 	return str[0].toUpperCase() + str.slice(1, str.length);//2 СПОСОБ
+//   return str.replace(str[0], str[0].toUpperCase());//3 СПОСОБ
+// }
+// console.log(capitalizeFirstLetter(str));
 
-	//   return str.replace(str[0], str[0].toUpperCase());//3 СПОСОБ
-	// }
-	// console.log(capitalizeFirstLetter(str));
-
-	// !=========ПОЛУЧИТЬ ЦЕЛОЕ ЧИСЛО============================
-	// let num = 123.456;
+// !=========ПОЛУЧИТЬ ЦЕЛОЕ ЧИСЛО============================
+// let num = 123.456;
 
 // 	// 1 СПОСОб
 // 	console.log(Math.trunc(num));
@@ -143,7 +142,6 @@
 // 	console.log(`пусто`);
 // } else {console.log(`HE пусто`);}
 
-
 // !============СЛУЧАЙНОЕ ЧИСЛО=======================
 
 // console.log(Math.random() * (10 - 1) + 1);
@@ -153,11 +151,10 @@
 // console.log(a, b);//1,2
 // console.log(arr);//3,4,...
 
-
 // const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // function removeFirstTwo(list) {
-//   const [a, b, ...arr] = list; 
+//   const [a, b, ...arr] = list;
 //   return arr;
 // }
 // console.log(removeFirstTwo(source));//3,4,5,6,7,8,9,10
@@ -166,7 +163,7 @@
 
 //!============РЕКУРСИЯ =======================
 // Ссылка на обьяснение рекурсии в фрибуткемпе
-	//https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-use-recursion-to-create-a-countdown/305925/2
+//https://forum.freecodecamp.org/t/freecodecamp-challenge-guide-use-recursion-to-create-a-countdown/305925/2
 // Например, допустим, вы хотите написать рекурсивную функцию, которая возвращает массив, содержащий числа от 1 до n. Эта функция должна принять аргумент n, представляющий конечное число. Затем она должна будет вызывать себя с постепенно уменьшающимися значениями n, пока не достигнет 1. Вы можете написать функцию следующим образом:
 
 // function countup(n) {
@@ -204,7 +201,6 @@
 //     return numbers;
 //   }
 // }
-
 
 // !============codewars task 1=======================
 
@@ -244,13 +240,12 @@
 // // filter_list([1,2,'aasf','1','123',123]) == [1,2,123]
 // console.log(Number.isNaN(2));
 
-
 // todo============codewars task 3=======================
 // В небольшом городе население в начале года составляет p0 = 1000 человек. Население регулярно увеличивается на 2 процента в год,
 //  кроме того, в город приезжает 50 новых жителей в год. Сколько лет нужно городу, чтобы его население стало больше или равно p = 1200 жителей?
-// В конце первого года будет: 
+// В конце первого года будет:
 // 1000 + 1000 * 0,02 + 50 => 1070 жителей.
-// В конце 2-го года будет: 
+// В конце 2-го года будет:
 // 1070 + 1070 * 0.02 + 50 => 1141 житель (** число жителей - целое число **)
 // В конце 3-го года будет:
 // 1141 + 1141 * 0.02 + 50 => 1213
@@ -281,7 +276,6 @@
 // console.log(nbYear(1500000, 2.5, 10000, 2000000));
 // console.log(nbYear(1000, 2, 50, 1200));
 
-
 // !============codewars task 4=======================
 // accum("abcd") -> "A-Bb-Ccc-Dddd"
 // accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
@@ -295,7 +289,7 @@
 // 	for (let i = 0; i < letters.length; i++) {
 
 // 		arr.push(letters[i].toUpperCase() + letters[i].toLowerCase().repeat(i));
-		
+
 // 	}
 // 	return arr.join("-");
 // }
@@ -326,7 +320,7 @@
 // 	console.log(arr);
 // 	return arr.filter(nose => nose.length === 2 || nose.includes('~') || nose.includes('-')).length;
 // }
-	
+
 // console.log(countSmileys([':)', ';(', ';}', ':-D', ':*)', '{}']));//2
 // console.log(countSmileys([';D', ':-(', ':-)', ';~)']));//3
 // console.log(countSmileys([';]', ':[', ';*', ':$', ';-D']));//1
@@ -426,7 +420,6 @@
 //     .every((x) => string.toLowerCase().includes(x));
 // }
 
-
 // !=============codewars task 12=======================
 // Ваша задача - написать функцию, которая увеличивает строку, чтобы создать новую строку.
 // Если строка уже заканчивается числом, то это число должно быть увеличено на 1.
@@ -445,65 +438,74 @@
 //  const q = Number.parseInt(string);
 //  console.log(q);
 //  	return Number.isNaN(Number.parseInt(string)) ? string + '1': string + (Number.parseInt(string) + 1);
-    
+
 // }
 
 // console.log(incrementString ('foo33'));
 // console.log(Number.parseInt("12vvdv44"));
 
+//!      ЗАМЫКАНИЕ
+// function generateUrl(dom) {
+//   return function (url) {
+//     console.log(`https://${url}.${dom}`);
+//   };
+// }
 
-//!      ЗАМЫКАНИЕ              
-function generateUrl(dom) {
-	return function (url) {
-		console.log(`https://${url}.${dom}`);
-	}
-}
+// const qqq = generateUrl("com");
 
-const qqq = generateUrl('com')
+// qqq("google");
+// qqq("njsdhb");
 
-qqq('google')
+// function sum(x) {
+//   return function (y) {
+//     console.log(x + y);
+//   };
+// }
+// const calc = sum(55);
 
+// calc();
 
-function sum(x) {
-	return function (y) {
-		console.log(x+y);
-	}
-}
-const calc = sum(55);
+// !           Написать свою функцию bind
 
-calc();
+// const person = {
+//   name: "Samuel",
+//   age: 36,
+//   job: "surveyor",
+// };
+// const student = {
+//   name: "Nikita",
+//   age: 18,
+//   job: "student",
+// };
 
+// function logPerson(hours, days) {
+//   console.log(
+//     `Person ${this.name} is ${this.age} years old works as a ${this.job} ${hours}/${days}`
+//   );
+// }
+// function qweCall() {
+//   console.log("Я написал свою функцию с привязкой контекста");
+// }
+// logPerson.call(person, 45, 5);
+// logPerson.call(student, 12, 6);
+// const bindingPerson = logPerson.bind(person);
+// bindingPerson(24, 7);
 
+// function bind(context, callback) {
+//   return function () {
+//     callback.call(context, ...arguments);
+//   };
+// }
 
-// ! Написать свою функцию bind
-
-const person = {
-	name: 'Samuel',
-	age:36,
-	job:'surveyor'
-}
-
-function logPerson() {
-	console.log(`Person ${this.name} is ${this.age} years old works as a ${this.job}`);
-}
-
-function bind(context, callback){
-
-	return function(...args){
-callback.apply(context, args)
-	}
-}
-
-bind(person, logPerson)()
-
-
+// const myBind = bind(person, logPerson);
+// myBind(24, 7);
 
 // !==========Вернуть количество людей онлайн(freeBootCamp)==================
 // function countOnline(usersObj) {
 // 	let count = 0;
-	
+
 // 	for (let user in usersObj) {
-	
+
 // if (usersObj[user].online) {
 // 	count += 1;
 // }
@@ -514,55 +516,180 @@ bind(person, logPerson)()
 // console.log(countOnline({ Alan: { online: false }, Jeff: { online: true }, Sarah: { online: false } }));
 // console.log(countOnline({ Alan: { online: true }, Jeff: { online: false }, Sarah: { online: true } }));
 
-
 // !===============Вернуть массив друзей с добавленным из аргумента другом онлайн(freeBootCamp)==========================
-let user = {
-  name: 'Kenneth',
-  age: 28,
-  data: {
-    username: 'kennethCodesAllDay',
-    joinDate: 'March 26, 2016',
-    organization: 'freeCodeCamp',
-    friends: [
-      'Sam',
-      'Kira',
-      'Tomo'
-    ],
-    location: {
-      city: 'San Francisco',
-      state: 'CA',
-      country: 'USA'
-    }
-  }
-};
+// let user = {
+//   name: "Kenneth",
+//   age: 28,
+//   data: {
+//     username: "kennethCodesAllDay",
+//     joinDate: "March 26, 2016",
+//     organization: "freeCodeCamp",
+//     friends: ["Sam", "Kira", "Tomo"],
+//     location: {
+//       city: "San Francisco",
+//       state: "CA",
+//       country: "USA",
+//     },
+//   },
+// };
 
-function addFriend(userObj, friend) {
-	const q = userObj.data.friends;
-	q.push(friend);
-	return q;
-}
+// function addFriend(userObj, friend) {
+//   //   const q = [...userObj.data.friends];
+//   const q = Array.from(userObj.data.friends);
+//   q.push(friend);
+//   return q;
+// }
 
-console.log(addFriend(user, 'Pete'));
-
+// console.log(addFriend(user, "Pete"));
+// console.log(user.data.friends);
 
 // !===============Возвращает факториал заданного целого числа(freeBootCamp)==========================
 
-function factorialize(num) {
-	let fuck = 1;
-  for (let i = 1; i <= num; i++) {
-	  
-	  fuck *= i;
+// function factorialize(num) {
+// 	let fuck = 1;
+//   for (let i = 1; i <= num; i++) {
+
+// 	  fuck *= i;
+//   }
+//   return fuck;
+// }
+
+// // *с использованием рекурсии
+// function factorialize(num) {
+//   if (num === 0) {
+//     return 1;
+//   }
+//   return num * factorialize(num - 1);
+// }
+
+// console.log(factorialize(6));
+//!================================
+// function multiply() {
+//   let total = 1;
+//   console.log(arguments);
+//   for (const argument of arguments) {
+//     console.log(argument);
+//     total *= argument;
+//   }
+
+//   return total;
+// }
+
+// console.log(multiply(1, 2, 3)); //  6
+// console.log(multiply(1, 2, 3, 4)); //  24
+// console.log(multiply(1, 2, 3, 4, 5)); //  120
+
+//!=========задачки Владика=========================
+// Напишите функцию, которая определяет уникальны ли все символы в строке. Регистр должен учитываться: `‘a’` и `‘A’` разные символы.
+// **Input**: String
+// **Output**: Boolean
+// function isUnique(string) {
+//   const unique = [...new Set(string)];
+//   return string.length === unique.length ? true : false;
+// }
+
+// function isUnique(string) {
+//   for (let i = 0; i < string.length; i++) {
+//     const element = string[i];
+//     console.log(string.indexOf(element), element, i);
+
+//     if (string.indexOf(element) !== i) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// function isUnique(string) {
+//   return new Set(string).size === string.length;
+// }
+
+// console.log(isUnique("abcdef")); // -> true
+// console.log(isUnique("1234567")); // -> true
+// console.log(isUnique("abcABC")); // -> true
+// console.log(isUnique("abcadef")); // -> false
+//====================================================================
+//! Плоский массив
+// Напишите функцию, принимающая массив с вложенными массивами и распакуйте в результирующий плоский массов. В результате должны получить новый одномерный массив.
+// **Input**: Array
+// **Output**: Array
+// function flatten(array) {
+//   const arr = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     const element = array[i];
+
+//     if (Array.isArray(element)) {
+//       const flat = flatten(element);
+//       console.log(flat);
+//       for (let j = 0; j < flat.length; j++) {
+//         arr.push(flat[j]);
+//       }
+//     } else {
+//       arr.push(element);
+//     }
+//   }
+//   return arr;
+// }
+
+// console.log(flatten([[[[[[[[[[[1]]]]]]]]]], [[2, 3]], [[[4]]]])); // -> [1, 2, 3, 4]
+//========================================================================
+// ! Удаление всех повторяющихся значений в строке
+// Напишите функцию, которая принимает строку и возвращает новую, в которой все дублирующиеся символы будут удалены.
+// **Input**: String
+// **Output**: String
+// function removeDupes(str) {
+//   const arr = str.split("");
+//   const filt = str.split("").filter((item, idx) => arr.indexOf(item) === idx);
+//   return filt.join("");
+// }
+// function removeDupes(str) {
+//   return [...new Set(str)].join("");
+// }
+
+// console.log(removeDupes("abcd")); // -> 'abcd'
+// console.log(removeDupes("aabbccdd")); // -> 'abcd'
+// console.log(removeDupes("abcddbca")); // -> 'abcd'
+// console.log(removeDupes("abababcdcdcd")); // -> 'abcd'
+//=====================================================================
+//! Какая строка встречается чаще всего
+// Напишите функцию, которая принимает массив строк и возвращает самую частовстречающуюся строку в этом массиве. Если таких строк несколько, то нужно вернуть первую, идя слева на право.
+// **Input**: String[]
+// **Output**: String
+function highestFrequency(array) {
+  const map = {};
+  let maxFreq = 0;
+  let maxFrStr = array[0];
+
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    if (map[element]) {
+      map[element] += 1;
+    } else {
+      map[element] = 1;
+    }
+
+    if (map[element] > maxFreq) {
+      maxFreq = map[element];
+      maxFrStr = element;
+    }
   }
-  return fuck;
+  return maxFrStr;
 }
 
-// *с использованием рекурсии
-function factorialize(num) {
-  if (num === 0) {
-    return 1;
-  }
-  return num * factorialize(num - 1);
-}
-
-
-console.log(factorialize(5));
+console.log(highestFrequency(["a", "b", "c", "c", "d", "e"])); // -> c
+console.log(highestFrequency(["abc", "def", "abc", "def", "abc"])); // -> abc
+console.log(highestFrequency(["abc", "def"])); // -> abc
+console.log(
+  highestFrequency([
+    "abc",
+    "abc",
+    "def",
+    "def",
+    "def",
+    "ghi",
+    "ghi",
+    "ghi",
+    "ghi",
+  ])
+); // -> ghi
