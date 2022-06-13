@@ -579,7 +579,7 @@
 // console.log(multiply(1, 2, 3, 4)); //  24
 // console.log(multiply(1, 2, 3, 4, 5)); //  120
 
-//!=========задачки Владика=========================
+//!====******=====задачки Владика====*******=====================
 // Напишите функцию, которая определяет уникальны ли все символы в строке. Регистр должен учитываться: `‘a’` и `‘A’` разные символы.
 // **Input**: String
 // **Output**: Boolean
@@ -614,6 +614,9 @@
 // **Input**: Array
 // **Output**: Array
 // function flatten(array) {
+
+// 		return array.flat(Infinity)//самое быстрое решение
+
 //   const arr = [];
 
 //   for (let i = 0; i < array.length; i++) {
@@ -656,40 +659,265 @@
 // Напишите функцию, которая принимает массив строк и возвращает самую частовстречающуюся строку в этом массиве. Если таких строк несколько, то нужно вернуть первую, идя слева на право.
 // **Input**: String[]
 // **Output**: String
-function highestFrequency(array) {
-  const map = {};
-  let maxFreq = 0;
-  let maxFrStr = array[0];
+// function highestFrequency(array) {
+//   const map = {};
+//   let maxFreq = 0;
+//   let maxFrStr = array[0];
 
-  for (let i = 0; i < array.length; i++) {
-    const element = array[i];
-    if (map[element]) {
-      map[element] += 1;
-    } else {
-      map[element] = 1;
-    }
+//   for (let i = 0; i < array.length; i++) {
+//     const element = array[i];
+//     if (map[element]) {
+//       map[element] += 1;
+//     } else {
+//       map[element] = 1;
+//     }
 
-    if (map[element] > maxFreq) {
-      maxFreq = map[element];
-      maxFrStr = element;
-    }
-  }
-  return maxFrStr;
-}
+//     if (map[element] > maxFreq) {
+//       maxFreq = map[element];
+//       maxFrStr = element;
+//     }
+//   }
+//   return maxFrStr;
+// }
 
-console.log(highestFrequency(["a", "b", "c", "c", "d", "e"])); // -> c
-console.log(highestFrequency(["abc", "def", "abc", "def", "abc"])); // -> abc
-console.log(highestFrequency(["abc", "def"])); // -> abc
-console.log(
-  highestFrequency([
-    "abc",
-    "abc",
-    "def",
-    "def",
-    "def",
-    "ghi",
-    "ghi",
-    "ghi",
-    "ghi",
-  ])
-); // -> ghi
+// console.log(highestFrequency(["a", "b", "c", "c", "d", "e"])); // -> c
+// console.log(highestFrequency(["abc", "def", "abc", "def", "abc"])); // -> abc
+// console.log(highestFrequency(["abc", "def"])); // -> abc
+// console.log(
+//   highestFrequency([
+//     "abc",
+//     "abc",
+//     "def",
+//     "def",
+//     "def",
+//     "ghi",
+//     "ghi",
+//     "ghi",
+//     "ghi",
+//   ])
+// ); // -> ghi
+//======================================================================
+//!Повернута ли строка?
+// Напишите функцию, которая принимает 2 строки. Верните `true` если строки являются перевернутым вариантом друг друга (см. пример). Иначе верните `false`.
+// **Input**: String, String
+// **Output**: Boolean
+// function isStringRotated(source, test) {
+// 	for (let i = 0; i < source.length; i++) {
+// 		const element = source[i];
+// 		if (test.includes(element) && source.length === test.length) {
+// 			return true
+// 		} else {return false}
+// 	}
+// }
+
+// console.log(isStringRotated('javascript', 'scriptjava')) // -> true
+// console.log(isStringRotated('javascript', 'iptjavascr')) // -> true
+// console.log(isStringRotated('javascript', 'java')) // -> false
+// console.log(isStringRotated('javascript', 'vajariscpt')) // -> true
+//======================================================================
+//!Является ли массив подмножеством другого массива
+// Напишите функцию, которая проверяет, является ли второй массив подмножеством первого. То есть есть ли элементы второго массива в первом.
+// **Input**: Number[] & String[], Number[] & String[]
+// function arraySubset(source, subset) {
+// 	if (source.length < subset.length) {
+// 		return false
+// 	}
+// 	for (let i = 0; i < subset.length; i++) {
+// 		const element = subset[i];
+// 		const idx = source.indexOf(element)
+
+// 		if (idx === -1) {
+// 			return false
+// 		}
+// 		delete source[idx]
+// 	}
+// 	return true
+// }
+
+// console.log(arraySubset([2, 1, 3], [1, 2, 3])) // -> true
+// console.log(arraySubset([2, 1, 1, 3], [1, 2, 3])) // -> true
+// console.log(arraySubset([1, 1, 1, 3], [1, 3, 3])) // -> false
+// console.log(arraySubset([1, 2], [1, 2, 3])) // -> false
+//======================================================================
+//!Анаграммы
+// Напишите функцию, которая проверяет, являются ли все элементы в массиве анаграммами друг друга.
+// **Input**: String[]
+// **Output**: Boolean
+// function allAnagrams(array) {
+// 	const sorted = array.map(str => str.split('').sort().join(''))
+// 	for (let i = 1; i < sorted.length; i++) {
+// 		const el = sorted[i];
+// 		if (el !== sorted[0]) {
+// 			return false
+// 		}
+// 	}
+// 	return true
+// }
+
+// console.log(allAnagrams(['abcd', 'bdac', 'cabd'])) // true
+// console.log(allAnagrams(['abcd', 'bdXc', 'cabd'])) // false
+//======================================================================
+//!Простой поиск
+// Напишите функцию, которая принимает отсортированный массив с числами и число. Необходимо вернуть индекс числа, если оно есть в массиве. Иначе вернуть `-1`.
+// **Input**: Number[], Number
+// **Output**: Number
+// function search(array, target) {
+// 	return array.includes(target) ? array.indexOf(target) : -1;
+// }
+
+// console.log(search([1, 3, 6, 13, 17], 13)) // -> 3
+// console.log(search([1, 3, 6, 13, 17], 12)) // -> -1
+//====================================================================
+//!Сбалансированные скобки
+// Напишите функцию, которая проверит строку на сбалансированность скобок: `{}, (), []`. Вернуть `true` если они сбалансированы, иначе `false`.
+// **Input**: String
+// **Output**: Boolean
+// function isBalanced(string) {
+//   const start = '({['
+//   const end = ']})'
+
+//   const map = {
+//     '}': '{',
+//     ')': '(',
+//     ']': '['
+//   }
+
+//   const queue = []
+
+//   for (let i = 0; i < string.length; i++) {
+//     const char = string[i]
+
+//     if (start.includes(char)) {
+//       queue.push(char)
+//     } else if (end.includes(char)) {
+//       const last = queue.pop()
+
+//       if (map[char] !== last) {
+//         return false
+//       }
+//     }
+//   }
+
+//   return !queue.length
+// }
+
+// console.log(isBalanced('(x + y) - (4)')) // -> true
+// console.log(isBalanced('(((10 ) ()) ((?)(:)))')) // -> true
+// console.log(isBalanced('[{()}]')) // -> true
+// console.log(isBalanced('(50)(')) // -> false
+// console.log(isBalanced('[{]}')) // -> false
+//============================================================
+//!Deep Equal
+// Напишите функцию, которая будет проверять на “глубокое” равенство 2 входящих параметра
+// **Inputs**: Any, Any
+// **Output**: Boolean
+// function deepEqual(a, b) {
+// 	const strA = JSON.stringify(a)
+// 	const strB = JSON.stringify(b)
+// console.log(strA, strB);
+// 	return strA === strB;
+// }
+
+// const source = {a: 1, b: {c: 1}}
+// const test1 = {a: 1, b: {c: 1}}
+// const test2 = {a: 1, b: {c: 2}}
+// console.log(deepEqual(source, test1)) // -> true
+// console.log(deepEqual(source, test2)) // -> false
+// console.log(deepEqual(NaN, NaN)) // -> true
+// console.log(deepEqual('test', 'test!')) // -> false
+// console.log(deepEqual()) // -> true
+//===============================================================
+//!Последовательность Фибоначчи
+// Напишите функцию, которая будет генерировать последовательность Фиббоначи длинны `n`, которую передали как аргумент.
+// **Input**: Number
+// **Output**: Number[]
+// function fibonacci(n) {
+// 	const res = [1, 1]
+// 		if (!n) {
+// 		 console.log('Enter some number');
+// 	}
+// 	if (n<2) {
+// 		return res.slice(0, n)
+// 	}
+// 	while (res.length < n) {
+// 		const last = res[res.length - 1];
+// 		const prev = res[res.length - 2];
+// 		res.push(prev + last)
+// 	}
+// 	return res
+// }
+
+// console.log(fibonacci(8)) // -> [1, 1, 2, 3, 5, 8, 13, 21]
+// console.log(fibonacci(1)) // -> [1]
+//=============================================================
+//!Своя функция bind
+// Реализуйте функцию `bind`.
+// **Input**: Object, arguments
+// **Output**: Function
+// const student = {
+//   name: "Nikita",
+//   age: 18,
+//   job: "student",
+// };
+
+//  function logPerson(...props) {
+//   console.log(this.name, ...props);
+// }
+
+// Function.prototype.myBind = function (context, ...args) {
+//   return (...rest) => {
+//     this.call(context, rest.concat(...args));
+//   };
+// }
+
+// const qqq = logPerson.myBind(student, 1213)
+// qqq(24, 7, 45646)
+//======================================================
+//!Универсальная сумма
+// Напишите функцию, которая складывает 2 числа. Работать функция должна как показано в примере ниже:
+// **Input**: Number, Number
+// **Output**: Number
+// function add(a, b) {
+//   if (!a) {
+//     return add
+//   }
+//   if (!b) {
+//     return function calc(c) {
+//       if (!c) return calc
+//       return a + c
+//     }
+//   }
+
+//   return console.log(a + b);
+// }
+// add(20, 22) // -> 42
+// add(2)(22) // -> 42
+// add(20)()(22) // -> 42
+// add(20)()()()(22) // -> 42
+// add(20)()()()()()()()()()()()(22) // -> 42
+// add()(20)(22) // -> 42
+// add()()()()(20)(22) // -> 42
+// add()(20)()(22) // -> 42
+// add()()()()()(20)()()()(22) // -> 42
+//===================================================
+//!GroupBy
+// Напишите функцию `groupBy`.
+// **Input**: Number[] & String[], Function & String
+// **Output**: Object
+// function groupBy(arr, fn) {
+	
+// 	return arr.reduce((res, item) => {
+// 		const key = typeof fn === 'function' ? fn(item) : item[fn];
+
+// 		if (!res[key]) {
+// 			res[key] = [];
+// 		}
+// 		res[key].push(item);
+
+// 		return res;
+// }, {})
+
+// }
+
+// console.log(groupBy([6.1, 4.2, 6.3], Math.floor));// -> { '4': [4.2], '6': [6.1, 6.3] }
+// console.log(groupBy(['one', 'two', 'three'], 'length')); // -> { '3': ['one', 'two'], '5': ['three'] }
