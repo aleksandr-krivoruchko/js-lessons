@@ -18,7 +18,7 @@
 
 // console.log("welcome to js world"[0]);
 
-// !==============УДАЛЕНИЕ ДУБЛИКАТОВ (УНИКАЛЬНЫЕ ЗНАЧЕНИЯ)===========================
+// !==============УДАЛЕНИЕ ДУБЛИКАТОВ (УНИКАЛЬНЫЕ ЗНАЧЕНИЯ)==========================
 // получить новый массив с уникальными значениями
 // const array = [1, 2, 3, 3, 4, 5, 6, 6, 7];
 // const str = "abcdef";
@@ -591,8 +591,6 @@
 // function isUnique(string) {
 //   for (let i = 0; i < string.length; i++) {
 //     const element = string[i];
-//     console.log(string.indexOf(element), element, i);
-
 //     if (string.indexOf(element) !== i) {
 //       return false;
 //     }
@@ -702,18 +700,21 @@
 // **Input**: String, String
 // **Output**: Boolean
 // function isStringRotated(source, test) {
-// 	for (let i = 0; i < source.length; i++) {
-// 		const element = source[i];
-// 		if (test.includes(element) && source.length === test.length) {
-// 			return true
-// 		} else {return false}
-// 	}
+//   if (source.length !== test.length) {
+//     return false;
+//   }
+//   for (let i = 0; i < source.length; i++) {
+//     const el = source[i];
+//     if (test.includes(el)) {
+//       return true;
+//     }
+//   }
 // }
 
-// console.log(isStringRotated('javascript', 'scriptjava')) // -> true
-// console.log(isStringRotated('javascript', 'iptjavascr')) // -> true
-// console.log(isStringRotated('javascript', 'java')) // -> false
-// console.log(isStringRotated('javascript', 'vajariscpt')) // -> true
+// console.log(isStringRotated("javascript", "scriptjava")); // -> true
+// console.log(isStringRotated("javascript", "iptjavascr")); // -> true
+// console.log(isStringRotated("javascript", "java")); // -> false
+// console.log(isStringRotated("javascript", "vajariscpt")); // -> true
 //======================================================================
 //!Является ли массив подмножеством другого массива
 // Напишите функцию, которая проверяет, является ли второй массив подмножеством первого. То есть есть ли элементы второго массива в первом.
@@ -744,29 +745,29 @@
 // **Input**: String[]
 // **Output**: Boolean
 // function allAnagrams(array) {
-// 	const sorted = array.map(str => str.split('').sort().join(''))
-// 	for (let i = 1; i < sorted.length; i++) {
-// 		const el = sorted[i];
-// 		if (el !== sorted[0]) {
-// 			return false
-// 		}
-// 	}
-// 	return true
+//   const sorted = array.map((str) => str.split("").sort().join(""));
+//   for (let i = 1; i < sorted.length; i++) {
+//     const el = sorted[i];
+//     if (el !== sorted[0]) {
+//       return false;
+//     }
+//   }
+//   return true;
 // }
 
-// console.log(allAnagrams(['abcd', 'bdac', 'cabd'])) // true
-// console.log(allAnagrams(['abcd', 'bdXc', 'cabd'])) // false
+// console.log(allAnagrams(["abcd", "bdac", "cabd"])); // true
+// console.log(allAnagrams(["abcd", "bdXc", "cabd"])); // false
 //======================================================================
 //!Простой поиск
 // Напишите функцию, которая принимает отсортированный массив с числами и число. Необходимо вернуть индекс числа, если оно есть в массиве. Иначе вернуть `-1`.
 // **Input**: Number[], Number
 // **Output**: Number
 // function search(array, target) {
-// 	return array.includes(target) ? array.indexOf(target) : -1;
+//   return array.indexOf(target);
 // }
 
-// console.log(search([1, 3, 6, 13, 17], 13)) // -> 3
-// console.log(search([1, 3, 6, 13, 17], 12)) // -> -1
+// console.log(search([1, 3, 6, 13, 17], 13)); // -> 3
+// console.log(search([1, 3, 6, 13, 17], 12)); // -> -1
 //====================================================================
 //!Сбалансированные скобки
 // Напишите функцию, которая проверит строку на сбалансированность скобок: `{}, (), []`. Вернуть `true` если они сбалансированы, иначе `false`.
@@ -800,12 +801,32 @@
 
 //   return !queue.length
 // }
+function isBalanced(str) {
+  const obj = {
+    "(": ")",
+    "[": "]",
+    "{": "}",
+  };
+  const stack = [];
+  for (let i = 0; i < str.length; i++) {
+    const el = str[i];
+    if (el === "(") {
+      stack.push(el);
+    } else if (el === ")") {
+      const last = stack.pop();
 
-// console.log(isBalanced('(x + y) - (4)')) // -> true
-// console.log(isBalanced('(((10 ) ()) ((?)(:)))')) // -> true
-// console.log(isBalanced('[{()}]')) // -> true
-// console.log(isBalanced('(50)(')) // -> false
-// console.log(isBalanced('[{]}')) // -> false
+      if (obj[el] !== last) {
+        return false;
+      }
+    }
+  }
+  return !stack.length;
+}
+console.log(isBalanced("(x + y) - (4)")); // -> true
+console.log(isBalanced("(((10 ) ()) ((?)(:)))")); // -> true
+console.log(isBalanced("[{()}]")); // -> true
+console.log(isBalanced("(50)(")); // -> false
+console.log(isBalanced("[{]}")); // -> false
 //============================================================
 //!Deep Equal
 // Напишите функцию, которая будет проверять на “глубокое” равенство 2 входящих параметра
@@ -905,7 +926,7 @@
 // **Input**: Number[] & String[], Function & String
 // **Output**: Object
 // function groupBy(arr, fn) {
-	
+
 // 	return arr.reduce((res, item) => {
 // 		const key = typeof fn === 'function' ? fn(item) : item[fn];
 
