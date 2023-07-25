@@ -801,32 +801,32 @@
 
 //   return !queue.length
 // }
-function isBalanced(str) {
-  const obj = {
-    "(": ")",
-    "[": "]",
-    "{": "}",
-  };
-  const stack = [];
-  for (let i = 0; i < str.length; i++) {
-    const el = str[i];
-    if (el === "(") {
-      stack.push(el);
-    } else if (el === ")") {
-      const last = stack.pop();
+// function isBalanced(str) {
+//   const obj = {
+//     "(": ")",
+//     "[": "]",
+//     "{": "}",
+//   };
+//   const stack = [];
+//   for (let i = 0; i < str.length; i++) {
+//     const el = str[i];
+//     if (el === "(") {
+//       stack.push(el);
+//     } else if (el === ")") {
+//       const last = stack.pop();
 
-      if (obj[el] !== last) {
-        return false;
-      }
-    }
-  }
-  return !stack.length;
-}
-console.log(isBalanced("(x + y) - (4)")); // -> true
-console.log(isBalanced("(((10 ) ()) ((?)(:)))")); // -> true
-console.log(isBalanced("[{()}]")); // -> true
-console.log(isBalanced("(50)(")); // -> false
-console.log(isBalanced("[{]}")); // -> false
+//       if (obj[el] !== last) {
+//         return false;
+//       }
+//     }
+//   }
+//   return !stack.length;
+// }
+// console.log(isBalanced("(x + y) - (4)")); // -> true
+// console.log(isBalanced("(((10 ) ()) ((?)(:)))")); // -> true
+// console.log(isBalanced("[{()}]")); // -> true
+// console.log(isBalanced("(50)(")); // -> false
+// console.log(isBalanced("[{]}")); // -> false
 //============================================================
 //!Deep Equal
 // Напишите функцию, которая будет проверять на “глубокое” равенство 2 входящих параметра
@@ -942,3 +942,67 @@ console.log(isBalanced("[{]}")); // -> false
 
 // console.log(groupBy([6.1, 4.2, 6.3], Math.floor));// -> { '4': [4.2], '6': [6.1, 6.3] }
 // console.log(groupBy(['one', 'two', 'three'], 'length')); // -> { '3': ['one', 'two'], '5': ['three'] }
+
+//!Завдання до виконання мовою JavaScript(Radency test task)
+/*Під час співбесіди вас просять створити програму, яка перевіряє, чи можна сформувати заданий рядок S з двох інших рядків: P1 і P2, так, щоб не залишилось зайвих символів.
+Умова в тому, що символи в P1 і P2 мають бути в тому самому порядку, що й у S.
+Інтерв’юер наводить вам наступний приклад: 'radency' можна сформувати за допомогою 'rdnc’ та 'aey':
+  S:  r a d e n c y   = radency
+P1:  r    d    n c      = rdnc
+P2:    a    e       y   = aey*/
+
+const s = "radency";
+const p1 = "rdnc";
+const p2 = "aey";
+const S = "w27y7";
+const P1 = "27";
+const P2 = "w7y";
+
+//?    С помощью рекурсии
+
+function isMerge(s, part1, part2) {
+  console.log(s);
+  console.log(part1, part2);
+  return !s
+    ? !(part1 || part2)
+    : (s[0] == part1[0] && isMerge(s.slice(1), part1.slice(1), part2)) ||
+        (s[0] == part2[0] && isMerge(s.slice(1), part1, part2.slice(1)));
+}
+
+//?   Более очевидный вариант
+
+// const stringChecker = function (s, p1, p2) {
+//   let p1Index = 0;
+//   let p2Index = 0;
+
+//   for (let i = 0; i < s.length; i++) {
+//     console.log(s);
+//     console.log(p1[p1Index], p2[p2Index]);
+
+//     if (!p1[p1Index] || !p2[p2Index]) {
+//       return true;
+//     }
+
+//     const currentChar = s[i];
+
+//     // Перевіряємо, чи символ потрібно взяти з P1
+//     if (p1[p1Index] && p1[p1Index] === currentChar) {
+//       p1Index++;
+//     }
+//     // Перевіряємо, чи символ потрібно взяти з P2
+//     else if (p2[p2Index] && p2[p2Index] === currentChar) {
+//       p2Index++;
+//     }
+//     // Якщо жоден з попередніх умов не виконується, то рядок S не може бути сформований з P1 та P2
+//     else {
+//       return false;
+//     }
+//   }
+
+//   // Перевірка, чи ми використали всі символи з P1 та P2
+//   return p1Index === p1.length && p2Index === p2.length;
+// };
+
+console.log(stringChecker(S, P1, P2));
+// console.log(stringChecker(s, p1, p2));
+console.log(isMerge(S, P1, P2));
